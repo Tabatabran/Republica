@@ -67,7 +67,7 @@ public class RepublicaSQLite implements IDAORepublica{
             preparedStmt.close();
         }            
         catch(SQLException e){
-            System.err.println("sql deu ruim");
+            System.err.println("sql deu ruim"+e.fillInStackTrace());
         }finally{
             if(conectou)
                 conexao.desconectar();

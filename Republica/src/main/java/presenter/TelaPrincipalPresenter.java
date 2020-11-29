@@ -17,6 +17,7 @@ public class TelaPrincipalPresenter {
         this.view.setLocationRelativeTo(null);
         marterRupublica();
         manterPerfil();
+        CriarRupublica();
         view.setVisible(true);
     }
     

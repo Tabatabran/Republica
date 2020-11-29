@@ -27,7 +27,7 @@ public class Republica {
     protected int vagasOcupadas;
     protected int vagasDisponiveis;
 
-    public Republica(String nome, LocalDate dataFundacao, String endereco, String CEP, String bairro, String vantagens, double despesasMediasPorMorador, int totalDeVagas, int vagasOcupadas, int vagasDisponiveis) {
+    public Republica(String nome, LocalDate dataFundacao, String endereco, String CEP, String bairro, String vantagens, double despesasMediasPorMorador, int totalDeVagas, int vagasOcupadas, int vagasDisponiveis, String referencia) {
         this.nome = nome;
         this.dataFundacao = dataFundacao;
         this.endereco = endereco;
@@ -38,6 +38,7 @@ public class Republica {
         this.totalDeVagas = totalDeVagas;
         this.vagasOcupadas = vagasOcupadas;
         this.vagasDisponiveis = vagasDisponiveis;
+        this.pondeDeReferencia = referencia;
     }
 
     public int getCodigo() {

@@ -5,6 +5,7 @@
  */
 package presenter;
 
+import com.pss.model.Usuario;
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
 import java.awt.Color;
@@ -17,10 +18,15 @@ import view.LoginView;
  */
 public class LoginPresenter {
     private LoginView view;
+    private Usuario logado;
+
+    public Usuario getLogado() {
+        return logado;
+    }
     
     public LoginPresenter() {
         this.view=new LoginView();
-        
+        this.view.setLocationRelativeTo(null);
         acessar();
         novoUsuario();
         cancelar();
@@ -35,6 +41,7 @@ public class LoginPresenter {
                 IDAOUsuario dao = new UsuarioSQLite();
                 boolean resultado= dao.consultarLogin(view.getjTextFieldUsuario().getText(), view.getjTextFieldSenha().getText());
                 if(resultado){
+                    logado = new Usuario(view.getjTextFieldUsuario().getText(),view.getjTextFieldSenha().getText());
                     new TelaPrincipalPresenter();
                     view.setVisible(false);
                 }

@@ -8,6 +8,7 @@ public class ManterTarefasPresenter {
     
     public ManterTarefasPresenter() {
         this.view  = new ManterTarefasView();
+        this.view.setLocationRelativeTo(null);
         configuraView();
         this.view.setVisible(true);
     }

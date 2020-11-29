@@ -16,4 +16,5 @@ public interface IDAOUsuario {
    public void addUsuario(String pNome, String pSenha);
    public ArrayList<Usuario> obterUsuarios();
    public boolean consultarLogin(String usuario, String senha);
+   public Usuario obterUsuario(Usuario usuario);
 }

@@ -16,6 +16,7 @@ public class CriarRepublicaPresenter {
 
     public CriarRepublicaPresenter() {
         this.view = new CriarRepublicaView();
+        this.view.setLocationRelativeTo(null);
         this.view.setVisible(true);
     }
     

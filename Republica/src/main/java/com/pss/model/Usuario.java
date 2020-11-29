@@ -63,6 +63,34 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public void setLinkRedeSocial(String linkRedeSocial) {
+        this.linkRedeSocial = linkRedeSocial;
+    }
+
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+
+    public void setTelefone3(String telefone3) {
+        this.telefone3 = telefone3;
+    }
     
     
 }

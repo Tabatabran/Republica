@@ -8,6 +8,7 @@ public class RegistrarConfirmacaoTarefaPresenter {
 
     public RegistrarConfirmacaoTarefaPresenter() {
         this.view = new RegistrarConfirmacaoTarefaView();
+        this.view.setLocationRelativeTo(null);
         configuraView();
         this.view.setVisible(true);
     }

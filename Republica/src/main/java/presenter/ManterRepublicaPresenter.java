@@ -16,6 +16,7 @@ public class ManterRepublicaPresenter {
 
     public ManterRepublicaPresenter() {
         this.view = new ManterRepublicaView();
+        this.view.setLocationRelativeTo(null);
         this.view.setVisible(true);
     }
     

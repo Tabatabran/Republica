@@ -19,6 +19,7 @@ public class CadastroPresenter {
     private CadastroView view;
     public CadastroPresenter() {
         this.view=new CadastroView();
+        this.view.setLocationRelativeTo(null);
         cadastrar();
         cancelar();
         this.view.setVisible(true);

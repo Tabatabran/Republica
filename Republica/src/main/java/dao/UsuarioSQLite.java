@@ -18,8 +18,36 @@ import java.util.ArrayList;
 public class UsuarioSQLite implements IDAOUsuario{
 
     @Override
-    public void addUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addUsuario(String pNome, String pSenha) {
+        ConexaoSQLite conexao= new ConexaoSQLite();
+              boolean conectou = false;        
+        try{
+            conectou=conexao.conectar();
+            String sqlInsert = "INSERT INTO usuarios(" +                            
+                            "nome_usuario," +
+                            "senha" +                       
+                            ") VALUES(?,?)"
+                            + ";";
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);            
+            preparedStmt.setString(1, pNome);
+            preparedStmt.setString(2, pSenha);
+                     
+            int resultado = preparedStmt.executeUpdate();
+            if(resultado == 1 ){
+                //System.out.println("deu bom a inserção");
+            }else{
+                System.out.println("pessoa nao inserida");
+            }
+           
+            preparedStmt.close();
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
     }
 
     @Override
@@ -50,7 +78,7 @@ public class UsuarioSQLite implements IDAOUsuario{
             }
                 
             else{
-                return true;
+                return false;
             }
                 
             /*while (resultSet.next()) {

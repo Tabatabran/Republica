@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -38,6 +39,7 @@ public class CadastroView extends javax.swing.JFrame {
         jTextFieldConfirmarSenha = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        jLabelErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Novo Usuarop");
@@ -68,9 +70,11 @@ public class CadastroView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldSenha, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldNomeUsuario)
-                            .addComponent(jTextFieldConfirmarSenha)))
+                            .addComponent(jTextFieldConfirmarSenha, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 235, Short.MAX_VALUE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabelErro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                         .addComponent(jButtonCadastrar)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCancelar)))
@@ -94,7 +98,8 @@ public class CadastroView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrar)
-                    .addComponent(jButtonCancelar))
+                    .addComponent(jButtonCancelar)
+                    .addComponent(jLabelErro))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -120,6 +125,10 @@ public class CadastroView extends javax.swing.JFrame {
     public JTextField getjTextFieldSenha() {
         return jTextFieldSenha;
     }
+
+    public JLabel getjLabelErro() {
+        return jLabelErro;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
@@ -127,6 +136,7 @@ public class CadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelErro;
     private javax.swing.JTextField jTextFieldConfirmarSenha;
     private javax.swing.JTextField jTextFieldNomeUsuario;
     private javax.swing.JTextField jTextFieldSenha;

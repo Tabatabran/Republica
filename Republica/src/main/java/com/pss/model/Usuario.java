@@ -21,8 +21,7 @@ public class Usuario {
     private String linkRedeSocial;
     private String telefone2;
     private String telefone3;
-    private StateMorador stateMorador;
-
+   
     public String getNome() {
         return nome;
     }
@@ -52,7 +51,7 @@ public class Usuario {
     }
     //codigo thiago
     public Usuario(String login, String senha) {
-        this.stateMorador = new SemTeto(this);
+        
         this.login = login;
         this.senha = senha;
     }

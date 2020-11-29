@@ -18,16 +18,26 @@ public class TelaPrincipalPresenter {
     public TelaPrincipalPresenter() {
         
         this.view=new TelaPrincipalView();
+        manterRupublica();
+        CriarRupublica();
         view.setVisible(true);
-        marterRupublica();
         
     }
     
-    public void marterRupublica(){
+    public void manterRupublica(){
         this.view.getjMenuItemManterRepublica().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ManterRepublicaPresenter();
+            }
+        });
+    }
+    
+    public void CriarRupublica(){
+        this.view.getjMenuItemCriarRepublica().addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CriarRepublicaPresenter();
             }
         });
     }

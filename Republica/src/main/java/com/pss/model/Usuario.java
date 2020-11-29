@@ -21,7 +21,7 @@ public class Usuario {
     private String linkRedeSocial;
     private String telefone2;
     private String telefone3;
-   
+    
     public String getNome() {
         return nome;
     }

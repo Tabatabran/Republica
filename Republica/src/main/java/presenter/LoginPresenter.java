@@ -47,7 +47,8 @@ public class LoginPresenter {
         this.view.getjButtonNovoUsuario().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Novo usuario");
+                CadastroPresenter cadastro = new CadastroPresenter();
+                
             }
         });
     }

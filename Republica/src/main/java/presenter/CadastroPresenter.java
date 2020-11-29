@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pss.model;
+package presenter;
 
 /**
  *
  * @author Thiago
  */
-public class Morador extends StateMorador{
-    
-    public Morador(Usuario usuario) {
-        super(usuario);
-    }
+public class CadastroPresenter {
     
 }

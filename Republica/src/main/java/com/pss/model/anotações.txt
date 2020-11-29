@@ -1,0 +1,8 @@
+Um morador é alguém que reside em uma república, portanto não pode residir em mais de uma república ao mesmo tempo. Ao ingressar em uma república o morador concorda com o estatuto, inclusive sobre as questões relacionadas ao pagamento das despesas.
+Os dados que devem ser mantidos do morador são: Nome, apelido, telefone. CPF, link para redes sociais,dois números de telefones dos pais/responsáveis/familiares. Além disso, deve existir um histórico de repúblicas que o morador já residiu.
+O morador pode criar sua república, e ao fazer isso ele precisa ser informado que caso confirme a criação de uma nova república, deixará a república atual. Sendo assim, ao confirmar a criação de uma república o morador deixa a república atual e passa a ser o representante da nova república.
+
+É o morador responsável pela república por um período de tempo, com uma data de início e fim do seu período de administração como explicitado em UC1 - Manter república.
+
+BR04 – “Sem teto”
+“Sem teto” é uma metáfora utilizada para alguém que atualmente não está morando em uma república, ou está em processo de mudança para alguma república. Os dados são os mesmos especificados na regra BR02 - Morador. Ao criar uma república, o “Sem teto” torna-se um “Representante da República”.

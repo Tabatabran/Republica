@@ -9,9 +9,9 @@ package com.pss.model;
  *
  * @author Thiago
  */
-public class Morador extends StateMorador{
+public class SemTeto extends StateMorador{
     
-    public Morador(Usuario usuario) {
+    public SemTeto(Usuario usuario) {
         super(usuario);
     }
     

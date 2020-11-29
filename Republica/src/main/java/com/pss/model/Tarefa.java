@@ -15,12 +15,12 @@ import java.util.ArrayList;
 public class Tarefa {
     protected int codigo;
     protected LocalDate dataAgendamento;
-    protected ArrayList<Morador> responsaveis;
+    protected ArrayList<tabataMorador> responsaveis;
     protected String descricao;
     protected LocalDate dataTermino;
     protected boolean finalizada; //se true a tarefa é marcada como concluída
 
-    public Tarefa(int codigo, LocalDate dataAgendamento, ArrayList<Morador> responsaveis, String descricao, LocalDate dataTermino) {
+    public Tarefa(int codigo, LocalDate dataAgendamento, ArrayList<tabataMorador> responsaveis, String descricao, LocalDate dataTermino) {
         this.codigo = codigo;
         this.dataAgendamento = dataAgendamento;
         this.responsaveis = responsaveis;
@@ -48,7 +48,7 @@ public class Tarefa {
         return dataAgendamento;
     }
 
-    public ArrayList<Morador> getResponsaveis() {
+    public ArrayList<tabataMorador> getResponsaveis() {
         return responsaveis;
     }
 

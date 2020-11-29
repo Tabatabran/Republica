@@ -9,10 +9,11 @@ package com.pss.model;
  *
  * @author Thiago
  */
-public class Morador extends StateMorador{
-    
-    public Morador(Usuario usuario) {
-        super(usuario);
+public abstract class StateMorador {
+    private Usuario usuario;
+
+    public StateMorador(Usuario usuario) {
+        this.usuario = usuario;
     }
     
 }

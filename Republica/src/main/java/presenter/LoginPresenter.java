@@ -7,6 +7,7 @@ package presenter;
 
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import view.LoginView;
 
@@ -33,11 +34,15 @@ public class LoginPresenter {
                 System.out.println("Loguei");
                 IDAOUsuario dao = new UsuarioSQLite();
                 boolean resultado= dao.consultarLogin(view.getjTextFieldUsuario().getText(), view.getjTextFieldSenha().getText());
-                if(resultado)
+                if(resultado){
                     new TelaPrincipalPresenter();
-                else 
-                    System.out.println("nononono");                
-            }
+                    view.setVisible(false);
+                }
+                else{ 
+                    view.getjLabelErro().setForeground(Color.red);
+                    view.getjLabelErro().setText("Usuário ou Senha Incorretos");               
+                }
+                }
         });
         
         
@@ -48,6 +53,7 @@ public class LoginPresenter {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CadastroPresenter cadastro = new CadastroPresenter();
+                
                 
             }
         });

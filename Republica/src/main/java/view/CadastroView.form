@@ -37,11 +37,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldSenha" alignment="1" max="32767" attributes="0"/>
                           <Component id="jTextFieldNomeUsuario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldConfirmarSenha" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldConfirmarSenha" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="235" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="jLabelErro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="227" max="32767" attributes="0"/>
                       <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
@@ -73,6 +75,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelErro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -110,6 +113,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelErro">
     </Component>
   </SubComponents>
 </Form>

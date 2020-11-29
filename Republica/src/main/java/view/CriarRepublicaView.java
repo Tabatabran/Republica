@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author tabat
@@ -14,8 +18,9 @@ public class CriarRepublicaView extends javax.swing.JFrame {
     /**
      * Creates new form ManterRepublicaView
      */
-    public CriarRepublicaView() {
+    public CriarRepublicaView(){
         initComponents();
+        
     }
 
     /**
@@ -40,20 +45,23 @@ public class CriarRepublicaView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextVantagens = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextVantagens = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextCodigoEtica = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        jTextField9 = new javax.swing.JTextField();
+        jTextLogradouro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        jTextBairro = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jTextPontoReferencia = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        jTextLocalizacaoGeografica = new javax.swing.JTextField();
+        jTextCEP = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
 
@@ -61,21 +69,32 @@ public class CriarRepublicaView extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da República"));
 
-        jLabel1.setText("Nome:");
+        jLabel1.setText("Nome:*");
 
-        jLabel2.setText("Data da fundação:");
+        jLabel2.setText("Data da fundação:*");
 
-        jLabel3.setText("Despesas Médias/Morador:");
+        jLabel3.setText("Despesas Médias/Morador:*");
 
-        jLabel4.setText("Total de Vagas:");
+        jLabel4.setText("Total de Vagas:*");
 
-        jLabel5.setText("Vagas Disponíveis:");
+        jLabel5.setText("Vagas Disponíveis:*");
 
-        jLabel6.setText("Vagas Ocupadas:");
+        jLabel6.setText("Vagas Ocupadas:*");
 
-        jLabel7.setText("Vantagens:");
+        jLabel7.setText("Vantagens:*");
 
         jLabel8.setText("Código de Ética:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        jLabel14.setText("(*) Campos obrigatórios");
+
+        jTextVantagens.setColumns(20);
+        jTextVantagens.setRows(5);
+        jScrollPane1.setViewportView(jTextVantagens);
+
+        jTextCodigoEtica.setColumns(20);
+        jTextCodigoEtica.setRows(5);
+        jScrollPane2.setViewportView(jTextCodigoEtica);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,10 +113,9 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextVantagens, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextDespesasMediasMorador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,23 +123,25 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextTotalVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4))))
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextVagasDisponiveis, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jTextVagasOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addComponent(jLabel4)))
+                                .addComponent(jLabel7)
+                                .addComponent(jScrollPane1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextVagasDisponiveis, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel5))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextVagasOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel6))))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jLabel14)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -152,23 +172,24 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextVantagens, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jLabel14))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Endereço:"));
 
-        jLabel9.setText("Logradouro:");
+        jLabel9.setText("Logradouro:*");
 
-        jLabel10.setText("Bairro:");
+        jLabel10.setText("Bairro:*");
 
-        jLabel11.setText("Ponto de Referência:");
+        jLabel11.setText("Ponto de Referência:*");
 
         jLabel12.setText("Localização Geográfica:");
 
-        jLabel13.setText("CEP:");
+        jLabel13.setText("CEP:*");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -177,12 +198,12 @@ public class CriarRepublicaView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField11)
+                    .addComponent(jTextLogradouro)
+                    .addComponent(jTextBairro)
+                    .addComponent(jTextPontoReferencia)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextLocalizacaoGeografica, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
@@ -192,7 +213,7 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField13))))
+                            .addComponent(jTextCEP))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -201,23 +222,23 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextPontoReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextLocalizacaoGeografica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -247,7 +268,7 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonConfirmar)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +277,67 @@ public class CriarRepublicaView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    public JButton getjButtonConfirmar() {
+        return jButtonConfirmar;
+    }
+
+    public JTextField getjTextBairro() {
+        return jTextBairro;
+    }
+
+    public JTextField getjTextCEP() {
+        return jTextCEP;
+    }
+
+    public JTextArea getjTextCodigoEtica() {
+        return jTextCodigoEtica;
+    }
+
+    public JTextField getjTextDataFundacao() {
+        return jTextDataFundacao;
+    }
+
+    public JTextField getjTextDespesasMediasMorador() {
+        return jTextDespesasMediasMorador;
+    }
+
+    public JTextField getjTextLocalizacaoGeografica() {
+        return jTextLocalizacaoGeografica;
+    }
+
+    public JTextField getjTextLogradouro() {
+        return jTextLogradouro;
+    }
+
+    public JTextField getjTextNome() {
+        return jTextNome;
+    }
+
+    public JTextField getjTextPontoReferencia() {
+        return jTextPontoReferencia;
+    }
+
+    public JTextField getjTextTotalVagas() {
+        return jTextTotalVagas;
+    }
+
+    public JTextField getjTextVagasDisponiveis() {
+        return jTextVagasDisponiveis;
+    }
+
+    public JTextField getjTextVagasOcupadas() {
+        return jTextVagasOcupadas;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public JTextArea getjTextVantagens() {
+        return jTextVantagens;
+    }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -265,6 +347,7 @@ public class CriarRepublicaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -275,18 +358,22 @@ public class CriarRepublicaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextBairro;
+    private javax.swing.JTextField jTextCEP;
+    private javax.swing.JTextArea jTextCodigoEtica;
     private javax.swing.JTextField jTextDataFundacao;
     private javax.swing.JTextField jTextDespesasMediasMorador;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextLocalizacaoGeografica;
+    private javax.swing.JTextField jTextLogradouro;
     private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextPontoReferencia;
     private javax.swing.JTextField jTextTotalVagas;
     private javax.swing.JTextField jTextVagasDisponiveis;
     private javax.swing.JTextField jTextVagasOcupadas;
-    private javax.swing.JTextField jTextVantagens;
+    private javax.swing.JTextArea jTextVantagens;
     // End of variables declaration//GEN-END:variables
+
+    
 }

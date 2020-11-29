@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author Thiago
@@ -28,101 +31,101 @@ public class TelaPrincipalView extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuRepublica = new javax.swing.JMenu();
+        jMenuItemManterRepublica = new javax.swing.JMenuItem();
+        jMenuItemManterMoradores = new javax.swing.JMenuItem();
+        jMenuItemConfirmarSolucoes = new javax.swing.JMenuItem();
+        jMenuItemConvidarAceitarConvites = new javax.swing.JMenuItem();
+        jMenuItemCriarRepublica = new javax.swing.JMenuItem();
+        jMenuItemBuscarVagas = new javax.swing.JMenuItem();
+        jMenuItemConsultarResultadoMensal = new javax.swing.JMenuItem();
+        jMenuItemManterReclamacoesSugestoes = new javax.swing.JMenuItem();
+        jMenuMorador = new javax.swing.JMenu();
+        jMenuItemManterPerfil = new javax.swing.JMenuItem();
+        jMenuItemAceitarConvite = new javax.swing.JMenuItem();
+        jMenuTarefas = new javax.swing.JMenu();
+        jMenuItemManterTarefas = new javax.swing.JMenuItem();
+        jMenuItemRegistrarConclusao = new javax.swing.JMenuItem();
+        jMenulancamentos = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("República");
+        jMenuRepublica.setText("República");
 
-        jMenuItem1.setText("Manter República");
-        jMenu1.add(jMenuItem1);
+        jMenuItemManterRepublica.setText("Manter República");
+        jMenuRepublica.add(jMenuItemManterRepublica);
 
-        jMenuItem2.setText("ManterMoradores");
-        jMenu1.add(jMenuItem2);
+        jMenuItemManterMoradores.setText("ManterMoradores");
+        jMenuRepublica.add(jMenuItemManterMoradores);
 
-        jMenuItem3.setText("Confirmar Soluções");
-        jMenu1.add(jMenuItem3);
+        jMenuItemConfirmarSolucoes.setText("Confirmar Soluções");
+        jMenuRepublica.add(jMenuItemConfirmarSolucoes);
 
-        jMenuItem4.setText("Convidar/Aceitar Convites");
-        jMenu1.add(jMenuItem4);
+        jMenuItemConvidarAceitarConvites.setText("Convidar/Aceitar Convites");
+        jMenuRepublica.add(jMenuItemConvidarAceitarConvites);
 
-        jMenuItem5.setText("Criar República");
-        jMenu1.add(jMenuItem5);
+        jMenuItemCriarRepublica.setText("Criar República");
+        jMenuRepublica.add(jMenuItemCriarRepublica);
 
-        jMenuItem6.setText("Buscar Vagas");
-        jMenu1.add(jMenuItem6);
+        jMenuItemBuscarVagas.setText("Buscar Vagas");
+        jMenuRepublica.add(jMenuItemBuscarVagas);
 
-        jMenuItem7.setText("Consultar Resultado Mensal");
-        jMenu1.add(jMenuItem7);
+        jMenuItemConsultarResultadoMensal.setText("Consultar Resultado Mensal");
+        jMenuRepublica.add(jMenuItemConsultarResultadoMensal);
 
-        jMenuItem8.setText("Manter Reclamações/Sugestões");
-        jMenu1.add(jMenuItem8);
+        jMenuItemManterReclamacoesSugestoes.setText("Manter Reclamações/Sugestões");
+        jMenuRepublica.add(jMenuItemManterReclamacoesSugestoes);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuRepublica);
 
-        jMenu2.setText("Morador");
+        jMenuMorador.setText("Morador");
 
-        jMenuItem9.setText("ManterPerfil");
-        jMenu2.add(jMenuItem9);
+        jMenuItemManterPerfil.setText("ManterPerfil");
+        jMenuMorador.add(jMenuItemManterPerfil);
 
-        jMenuItem10.setText("AceitarConvite");
-        jMenu2.add(jMenuItem10);
+        jMenuItemAceitarConvite.setText("AceitarConvite");
+        jMenuMorador.add(jMenuItemAceitarConvite);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuMorador);
 
-        jMenu3.setText("Tarefas");
+        jMenuTarefas.setText("Tarefas");
 
-        jMenuItem11.setText("ManterTarefas");
-        jMenu3.add(jMenuItem11);
+        jMenuItemManterTarefas.setText("ManterTarefas");
+        jMenuTarefas.add(jMenuItemManterTarefas);
 
-        jMenuItem12.setText("Registrar Conclusão ");
-        jMenu3.add(jMenuItem12);
+        jMenuItemRegistrarConclusao.setText("Registrar Conclusão ");
+        jMenuTarefas.add(jMenuItemRegistrarConclusao);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuTarefas);
 
-        jMenu4.setText("Lançamentos");
+        jMenulancamentos.setText("Lançamentos");
 
         jMenuItem13.setText("jMenuItem13");
-        jMenu4.add(jMenuItem13);
+        jMenulancamentos.add(jMenuItem13);
 
         jMenuItem14.setText("jMenuItem14");
-        jMenu4.add(jMenuItem14);
+        jMenulancamentos.add(jMenuItem14);
 
         jMenuItem15.setText("jMenuItem15");
-        jMenu4.add(jMenuItem15);
+        jMenulancamentos.add(jMenuItem15);
 
         jMenuItem16.setText("jMenuItem16");
-        jMenu4.add(jMenuItem16);
+        jMenulancamentos.add(jMenuItem16);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenulancamentos);
 
-        jMenu5.setText("Opções");
+        jMenuOpcoes.setText("Opções");
 
-        jMenuItem17.setText("Sair");
-        jMenu5.add(jMenuItem17);
+        jMenuItemSair.setText("Sair");
+        jMenuOpcoes.add(jMenuItemSair);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenuOpcoes);
 
         setJMenuBar(jMenuBar1);
 
@@ -144,30 +147,121 @@ public class TelaPrincipalView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+    public JMenuItem getjMenuItem13() {
+        return jMenuItem13;
+    }
+
+    public JMenuItem getjMenuItem14() {
+        return jMenuItem14;
+    }
+
+    public JMenuItem getjMenuItem15() {
+        return jMenuItem15;
+    }
+
+    public JMenuItem getjMenuItem16() {
+        return jMenuItem16;
+    }
+
+    public JMenuItem getjMenuItemAceitarConvite() {
+        return jMenuItemAceitarConvite;
+    }
+
+    public JMenuItem getjMenuItemBuscarVagas() {
+        return jMenuItemBuscarVagas;
+    }
+
+    public JMenuItem getjMenuItemConfirmarSolucoes() {
+        return jMenuItemConfirmarSolucoes;
+    }
+
+    public JMenuItem getjMenuItemConsultarResultadoMensal() {
+        return jMenuItemConsultarResultadoMensal;
+    }
+
+    public JMenuItem getjMenuItemConvidarAceitarConvites() {
+        return jMenuItemConvidarAceitarConvites;
+    }
+
+    public JMenuItem getjMenuItemCriarRepublica() {
+        return jMenuItemCriarRepublica;
+    }
+
+    public JMenuItem getjMenuItemManterMoradores() {
+        return jMenuItemManterMoradores;
+    }
+
+    public JMenuItem getjMenuItemManterPerfil() {
+        return jMenuItemManterPerfil;
+    }
+
+    public JMenuItem getjMenuItemManterReclamacoesSugestoes() {
+        return jMenuItemManterReclamacoesSugestoes;
+    }
+
+    public JMenuItem getjMenuItemManterRepublica() {
+        return jMenuItemManterRepublica;
+    }
+
+    public JMenuItem getjMenuItemManterTarefas() {
+        return jMenuItemManterTarefas;
+    }
+
+    public JMenuItem getjMenuItemRegistrarConclusao() {
+        return jMenuItemRegistrarConclusao;
+    }
+
+    public JMenuItem getjMenuItemSair() {
+        return jMenuItemSair;
+    }
+
+    public JMenu getjMenuMorador() {
+        return jMenuMorador;
+    }
+
+    public JMenu getjMenuOpcoes() {
+        return jMenuOpcoes;
+    }
+
+    public JMenu getjMenuRepublica() {
+        return jMenuRepublica;
+    }
+
+    public JMenu getjMenuTarefas() {
+        return jMenuTarefas;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public JMenu getjMenulancamentos() {
+        return jMenulancamentos;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemAceitarConvite;
+    private javax.swing.JMenuItem jMenuItemBuscarVagas;
+    private javax.swing.JMenuItem jMenuItemConfirmarSolucoes;
+    private javax.swing.JMenuItem jMenuItemConsultarResultadoMensal;
+    private javax.swing.JMenuItem jMenuItemConvidarAceitarConvites;
+    private javax.swing.JMenuItem jMenuItemCriarRepublica;
+    private javax.swing.JMenuItem jMenuItemManterMoradores;
+    private javax.swing.JMenuItem jMenuItemManterPerfil;
+    private javax.swing.JMenuItem jMenuItemManterReclamacoesSugestoes;
+    private javax.swing.JMenuItem jMenuItemManterRepublica;
+    private javax.swing.JMenuItem jMenuItemManterTarefas;
+    private javax.swing.JMenuItem jMenuItemRegistrarConclusao;
+    private javax.swing.JMenuItem jMenuItemSair;
+    private javax.swing.JMenu jMenuMorador;
+    private javax.swing.JMenu jMenuOpcoes;
+    private javax.swing.JMenu jMenuRepublica;
+    private javax.swing.JMenu jMenuTarefas;
+    private javax.swing.JMenu jMenulancamentos;
     // End of variables declaration//GEN-END:variables
 }

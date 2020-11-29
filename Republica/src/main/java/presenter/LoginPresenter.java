@@ -33,9 +33,10 @@ public class LoginPresenter {
                 System.out.println("Loguei");
                 IDAOUsuario dao = new UsuarioSQLite();
                 boolean resultado= dao.consultarLogin(view.getjTextFieldUsuario().getText(), view.getjTextFieldSenha().getText());
-                if(resultado)
+                if(resultado){
                     new TelaPrincipalPresenter();
-                else 
+                    view.dispose();
+                }else 
                     System.out.println("nononono");                
             }
         });

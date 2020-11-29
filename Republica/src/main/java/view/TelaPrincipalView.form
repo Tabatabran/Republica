@@ -4,88 +4,88 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenuRepublica">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rep&#xfa;blica"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterRepublica">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manter Rep&#xfa;blica"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterMoradores">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ManterMoradores"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConfirmarSolucoes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Confirmar Solu&#xe7;&#xf5;es"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConvidarAceitarConvites">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Convidar/Aceitar Convites"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCriarRepublica">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Criar Rep&#xfa;blica"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemBuscarVagas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar Vagas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConsultarResultadoMensal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar Resultado Mensal"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterReclamacoesSugestoes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manter Reclama&#xe7;&#xf5;es/Sugest&#xf5;es"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenuMorador">
           <Properties>
             <Property name="text" type="java.lang.String" value="Morador"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterPerfil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ManterPerfil"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAceitarConvite">
               <Properties>
                 <Property name="text" type="java.lang.String" value="AceitarConvite"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="jMenuTarefas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tarefas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterTarefas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ManterTarefas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemRegistrarConclusao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrar Conclus&#xe3;o "/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="jMenulancamentos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lan&#xe7;amentos"/>
           </Properties>
@@ -112,12 +112,12 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="jMenuOpcoes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSair">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>

@@ -1,9 +1,8 @@
 
 package presenter;
 
-import presenter.ManterPerfil.ManterPerfilPresenter;
-import com.pss.model.Usuario;
 import java.awt.event.ActionEvent;
+import presenter.ManterPerfil.ManterPerfilPresenter;
 import view.TelaPrincipalView;
 
 /**
@@ -14,12 +13,14 @@ public class TelaPrincipalPresenter {
     private TelaPrincipalView  view;
     
     public TelaPrincipalPresenter() {
-     
+        
         this.view=new TelaPrincipalView();
         this.view.setLocationRelativeTo(null);
         marterRupublica();
         manterPerfil();
         CriarRupublica();
+        manterTarefas();
+        registrarConclusaoTarefas();
         view.setVisible(true);
     }
     
@@ -47,7 +48,21 @@ public class TelaPrincipalPresenter {
             }
         });
     }
-    
-    
+    public void manterTarefas(){
+        this.view.getjMenuItemManterTarefas().addActionListener(new java.awt.event.ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManterTarefasPresenter();
+            }
+        });
+    }
+    public void registrarConclusaoTarefas(){
+        this.view.getjMenuItemRegistrarConclusao().addActionListener(new java.awt.event.ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RegistrarConfirmacaoTarefaPresenter();
+            }
+        });
+    }    
 
 }

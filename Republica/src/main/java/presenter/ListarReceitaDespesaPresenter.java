@@ -8,6 +8,7 @@ public class ListarReceitaDespesaPresenter {
 
     public ListarReceitaDespesaPresenter() {
         this.view = new ListarReceitaDespesaView();
+        this.view.setLocationRelativeTo(null);
         configuraView();
         this.view.setVisible(true);
     }

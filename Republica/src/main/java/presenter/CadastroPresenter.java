@@ -20,6 +20,7 @@ public class CadastroPresenter {
     public CadastroPresenter() {
         this.view=new CadastroView();
         this.view.setLocationRelativeTo(null);
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         cadastrar();
         cancelar();
         this.view.setVisible(true);

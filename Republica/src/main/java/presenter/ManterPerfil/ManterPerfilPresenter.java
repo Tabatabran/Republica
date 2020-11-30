@@ -20,6 +20,7 @@ public class ManterPerfilPresenter {
     public ManterPerfilPresenter() {
         
         this.view = new ManterPerfilView();
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         excluirConta();
         exibirHistorico();
         editar();

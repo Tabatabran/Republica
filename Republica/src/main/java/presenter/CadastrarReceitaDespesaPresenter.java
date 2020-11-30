@@ -8,6 +8,7 @@ public class CadastrarReceitaDespesaPresenter {
 
     public CadastrarReceitaDespesaPresenter() {
         this.view = new CadastrarReceitaDespesaView();
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         configuraView();
         this.view.setVisible(true);
     }

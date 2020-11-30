@@ -8,6 +8,7 @@ public class RealizarEstornoPresenter {
 
     public RealizarEstornoPresenter() {
         this.view = new RealizarEstornoView();
+        this.view.setLocationRelativeTo(null);
         configuraView();
         this.view.setVisible(true);
     }

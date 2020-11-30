@@ -18,6 +18,8 @@ public class TelaPrincipalPresenter {
         marterRupublica();
         manterPerfil();
         CriarRupublica();
+        manterTarefas();
+        registrarConclusaoTarefas();
         view.setVisible(true);
     }
     
@@ -45,7 +47,21 @@ public class TelaPrincipalPresenter {
             }
         });
     }
-    
-    
+    public void manterTarefas(){
+        this.view.getjMenuItemManterTarefas().addActionListener(new java.awt.event.ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManterTarefasPresenter();
+            }
+        });
+    }
+    public void registrarConclusaoTarefas(){
+        this.view.getjMenuItemRegistrarConclusao().addActionListener(new java.awt.event.ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RegistrarConfirmacaoTarefaPresenter();
+            }
+        });
+    }    
 
 }

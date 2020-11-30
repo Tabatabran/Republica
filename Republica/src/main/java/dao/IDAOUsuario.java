@@ -17,4 +17,5 @@ public interface IDAOUsuario {
    public ArrayList<Usuario> obterUsuarios();
    public boolean consultarLogin(String usuario, String senha);
    public Usuario obterUsuario(Usuario usuario);
+   public boolean excluirConta();
 }

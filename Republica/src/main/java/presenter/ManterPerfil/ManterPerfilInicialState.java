@@ -5,6 +5,9 @@
  */
 package presenter.ManterPerfil;
 
+import dao.IDAOUsuario;
+import dao.UsuarioSQLite;
+
 /**
  *
  * @author Thiago
@@ -17,7 +20,8 @@ public class ManterPerfilInicialState extends ManterPerfilState{
     }
     @Override
     public void excluirConta(){
-        
+        IDAOUsuario dao = new UsuarioSQLite();
+        dao.excluirConta();
     }
     @Override
     public  void exibirHistorico(){

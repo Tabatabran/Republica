@@ -6,6 +6,7 @@
 package presenter.ManterPerfil;
 
 import com.pss.model.Usuario;
+import com.pss.model.UsuarioLogado;
 import java.awt.event.ActionEvent;
 import view.ManterPerfilView;
 
@@ -24,8 +25,9 @@ public class ManterPerfilPresenter {
         exibirHistorico();
         editar();
         this.view.setLocationRelativeTo(null);
-        this.view.setVisible(true);
         this.state= new ManterPerfilInicialState(this);
+        this.view.setVisible(true);
+        
     }
     public void changeState(ManterPerfilState state){
         this.state=state;
@@ -82,6 +84,14 @@ public class ManterPerfilPresenter {
         this.view.getjButtonHistorico().setVisible(true);
         
         this.view.getjButtonEditar().setText("Editar");
+        
+        UsuarioLogado usuario = UsuarioLogado.getInstancia("", "", "", "", "", "", "", "", "");
+        this.view.getjTextFieldApelido().setText(usuario.getApelido());
+        this.view.getjTextFieldNome().setText(usuario.getNome());
+        this.view.getjTextFieldRedeSocial().setText(usuario.getLinkRedeSocial());
+        this.view.getjTextFieldTelefone1().setText(usuario.getTelefone1());
+        this.view.getjTextFieldTelefone2().setText(usuario.getTelefone2());
+        this.view.getjTextFieldTelefone3().setText(usuario.getTelefone3());
         
         this.view.getjTextFieldApelido().setEditable(false);
         this.view.getjTextFieldNome().setEditable(false);

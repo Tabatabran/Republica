@@ -161,6 +161,42 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
         
     }
+    @Override
+    public boolean excluirConta(){
+        
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        
+        PreparedStatement stmt = null;
+        //ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "DELETE FROM usuarios WHERE nome_usuario = ? ";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, UsuarioLogado.getInstancia("", "", "", "", "", "", "", "", "").getLogin());
+            
+             
+            stmt.executeUpdate();
+       
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario"+e.fillInStackTrace());
+            return false;
+        }finally{
+            try{
+               
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+        return true;
+    }
 
     
     

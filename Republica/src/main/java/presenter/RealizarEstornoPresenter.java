@@ -9,6 +9,7 @@ public class RealizarEstornoPresenter {
     public RealizarEstornoPresenter() {
         this.view = new RealizarEstornoView();
         this.view.setLocationRelativeTo(null);
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         configuraView();
         this.view.setVisible(true);
     }

@@ -15,7 +15,7 @@ public class ReclamacaoSugestao {
     protected int codigo;
     protected LocalDate dataCriacao;
     protected boolean anonima;//se o valor for true não registra o morador reclamante
-    protected tabataMorador moradorReclamante; //quem fez, não terá se for anônima
+    protected Morador moradorReclamante; //quem fez, não terá se for anônima
     protected String descricao;
     protected LocalDate dataSolucao;
     protected int idade; //dias que levou pra ser solucionada
@@ -39,7 +39,7 @@ public class ReclamacaoSugestao {
         return anonima;
     }
 
-    public tabataMorador getMoradorReclamante() {
+    public Morador getMoradorReclamante() {
         return moradorReclamante;
     }
 
@@ -63,7 +63,7 @@ public class ReclamacaoSugestao {
         this.codigo = codigo;
     }
 
-    public void setMoradorReclamante(tabataMorador moradorReclamante) {
+    public void setMoradorReclamante(Morador moradorReclamante) {
         this.moradorReclamante = moradorReclamante;
     }
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author tabat
  */
-class tabataMorador {
+class Morador {
     protected int codigo;
     protected String nome;
     protected String apelido;
@@ -21,7 +21,7 @@ class tabataMorador {
     protected String telefoneResponsaveis;
     protected ArrayList<HistoricoRepublica> historico;
 
-    public tabataMorador(String nome, String apelido, String telefone, String CPF, String linkRedesSociais, String telefoneResponsaveis) {
+    public Morador(String nome, String apelido, String telefone, String CPF, String linkRedesSociais, String telefoneResponsaveis) {
         this.nome = nome;
         this.apelido = apelido;
         this.telefone = telefone;

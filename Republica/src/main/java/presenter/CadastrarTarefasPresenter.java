@@ -8,6 +8,7 @@ public class CadastrarTarefasPresenter {
 
     public CadastrarTarefasPresenter() {
         this.view = new CadastrarTarefasView();
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
         configuraView();
         this.view.setVisible(true);

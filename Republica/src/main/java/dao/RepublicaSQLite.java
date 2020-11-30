@@ -80,7 +80,7 @@ public class RepublicaSQLite implements IDAORepublica{
     }
 
     @Override
-    public boolean consultarRepublica(String nomeRepublica) {
+    public Republica consultarRepublica(String nomeRepublica) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

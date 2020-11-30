@@ -15,5 +15,5 @@ import java.util.ArrayList;
 public interface IDAORepublica {
    public void addRepublica(Republica republica);
    public ArrayList<Republica> obterRepublicas();
-   public boolean consultarRepublica(String nomeRepublica);
+   public Republica consultarRepublica(String nomeRepublica);
 }

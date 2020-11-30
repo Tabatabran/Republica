@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import com.pss.model.UsuarioLogado;
 
 /**
  *
@@ -71,7 +72,17 @@ public class UsuarioSQLite implements IDAOUsuario{
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
             resultSet= stmt.executeQuery();
+            //login, senha, nome, apelido, cpf, redeSocial, telefone1, telefone2,  telefone3
             if(resultSet.next()){
+                UsuarioLogado.getInstancia(resultSet.getString("nome_usuario"),
+                         resultSet.getString("senha"),
+                         resultSet.getString("nome"),
+                         resultSet.getString("apelido"), 
+                         resultSet.getString("cpf"), 
+                         resultSet.getString("rede_social"), 
+                         resultSet.getString("telefone1"), 
+                         resultSet.getString("telefone2"),
+                         resultSet.getString("telefone3"));
                 return true;
             }
                 

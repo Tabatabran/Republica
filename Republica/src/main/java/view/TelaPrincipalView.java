@@ -55,6 +55,7 @@ public class TelaPrincipalView extends javax.swing.JFrame {
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestão de Repúblicas");
 
         jMenuRepublica.setText("República");
 

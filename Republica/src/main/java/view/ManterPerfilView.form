@@ -28,37 +28,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jTextFieldTelefone3" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
-                  <Component id="jTextFieldTelefone2" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
-                  <Component id="jTextFieldRedeSocial" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
-                  <Component id="jTextFieldTelefone1" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
-                  <Component id="jTextFieldApelido" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                      <Component id="jButtonHistorico" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jTextFieldTelefone3" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTelefone2" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRedeSocial" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTelefone1" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Component id="jTextFieldApelido" alignment="1" min="-2" pref="381" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                                      <Component id="jButtonHistorico" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jRadioButtonPublico" min="-2" max="-2" attributes="0"/>
@@ -70,14 +68,14 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldNome" min="-2" max="-2" attributes="0"/>
@@ -108,7 +106,7 @@
                   <Component id="jRadioButtonPublico" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jRadioButtonPrivado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="108" max="32767" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonHistorico" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -156,25 +154,45 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldApelido">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone1">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldRedeSocial">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone2">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone3">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonPublico">
       <Properties>
         <Property name="text" type="java.lang.String" value="Publico"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonPrivado">
       <Properties>
         <Property name="text" type="java.lang.String" value="Privado"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonExcluir">

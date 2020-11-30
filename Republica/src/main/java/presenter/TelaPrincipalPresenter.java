@@ -1,6 +1,8 @@
 
 package presenter;
 
+import presenter.ManterPerfil.ManterPerfilPresenter;
+import com.pss.model.Usuario;
 import java.awt.event.ActionEvent;
 import view.TelaPrincipalView;
 
@@ -12,7 +14,7 @@ public class TelaPrincipalPresenter {
     private TelaPrincipalView  view;
     
     public TelaPrincipalPresenter() {
-        
+     
         this.view=new TelaPrincipalView();
         this.view.setLocationRelativeTo(null);
         marterRupublica();

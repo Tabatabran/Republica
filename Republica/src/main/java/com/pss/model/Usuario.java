@@ -55,7 +55,9 @@ public class Usuario {
         this.login = login;
         this.senha = senha;
     }
-
+    public Usuario(){
+        
+    }
     public String getLogin() {
         return login;
     }
@@ -90,6 +92,14 @@ public class Usuario {
 
     public void setTelefone3(String telefone3) {
         this.telefone3 = telefone3;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

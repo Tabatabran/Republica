@@ -71,9 +71,23 @@ public class ManterPerfilView extends javax.swing.JFrame {
 
         jLabel7.setText("Perfil:");
 
+        jTextFieldNome.setEditable(false);
+
+        jTextFieldApelido.setEditable(false);
+
+        jTextFieldTelefone1.setEditable(false);
+
+        jTextFieldRedeSocial.setEditable(false);
+
+        jTextFieldTelefone2.setEditable(false);
+
+        jTextFieldTelefone3.setEditable(false);
+
         jRadioButtonPublico.setText("Publico");
+        jRadioButtonPublico.setEnabled(false);
 
         jRadioButtonPrivado.setText("Privado");
+        jRadioButtonPrivado.setEnabled(false);
 
         jButtonExcluir.setText("Excluir Conta");
 
@@ -86,18 +100,23 @@ public class ManterPerfilView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldTelefone3, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldRedeSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addComponent(jButtonExcluir))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButtonExcluir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(jButtonHistorico)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButtonEditar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldTelefone3, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldRedeSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldApelido, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel4)
@@ -105,25 +124,19 @@ public class ManterPerfilView extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(102, 102, 102)
-                                        .addComponent(jButtonHistorico)
-                                        .addGap(41, 41, 41)
-                                        .addComponent(jButtonEditar))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2)))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jRadioButtonPublico)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jRadioButtonPrivado))
                                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,7 +166,7 @@ public class ManterPerfilView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonPublico)
                     .addComponent(jRadioButtonPrivado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExcluir)
                     .addComponent(jButtonHistorico)
@@ -193,6 +206,18 @@ public class ManterPerfilView extends javax.swing.JFrame {
 
     public JTextField getjTextFieldRedeSocial() {
         return jTextFieldRedeSocial;
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+
+    public JTextField getjTextFieldTelefone2() {
+        return jTextFieldTelefone2;
+    }
+
+    public JButton getjButtonEditar() {
+        return jButtonEditar;
     }
 
     public JTextField getjTextFieldTelefone1() {

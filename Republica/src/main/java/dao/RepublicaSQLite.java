@@ -192,8 +192,38 @@ public class RepublicaSQLite implements IDAORepublica {
     }
 
     @Override
-    public void excluirRepublica(String nome) {
+    public void excluirRepublica(String nomeRepublica) {
+        ConexaoSQLite conexao = new ConexaoSQLite();
+        boolean conectou = false;
+        try {
+            conectou = conexao.conectar();
+            String sqlInsert = "DELETE FROM republica" 
+                    + " WHERE nome = ?" 
+                    + ";";
 
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);
+            preparedStmt.setString(1, nomeRepublica);
+            
+
+            try {
+                int resultado = preparedStmt.executeUpdate();
+                if (resultado == 1) {
+                    JOptionPane.showMessageDialog(null, "República deletada com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "República não deletada");
+                }
+            } catch (SQLException e) {
+                System.err.println("sql " + e.fillInStackTrace());
+            }
+
+            preparedStmt.close();
+        } catch (SQLException e) {
+            System.err.println("sql deu ruim" + e.fillInStackTrace());
+        } finally {
+            if (conectou) {
+                conexao.desconectar();
+            }
+        }
     }
 
 }

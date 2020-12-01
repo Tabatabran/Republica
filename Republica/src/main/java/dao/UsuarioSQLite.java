@@ -82,7 +82,8 @@ public class UsuarioSQLite implements IDAOUsuario{
                          resultSet.getString("rede_social"), 
                          resultSet.getString("telefone1"), 
                          resultSet.getString("telefone2"),
-                         resultSet.getString("telefone3"));
+                         resultSet.getString("telefone3"),
+                         resultSet.getString("republica"));
                 return true;
             }
                 
@@ -175,7 +176,7 @@ public class UsuarioSQLite implements IDAOUsuario{
             
             String query = "DELETE FROM usuarios WHERE nome_usuario = ? ";
             stmt = conexao.criarPreparedStatement(query);
-            stmt.setString(1, UsuarioLogado.getInstancia("", "", "", "", "", "", "", "", "").getLogin());
+            stmt.setString(1, UsuarioLogado.getInstancia().getLogin());
             
              
             stmt.executeUpdate();

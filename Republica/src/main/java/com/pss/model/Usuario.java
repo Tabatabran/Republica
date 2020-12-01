@@ -21,6 +21,15 @@ public class Usuario {
     private String linkRedeSocial;
     private String telefone2;
     private String telefone3;
+    private String republicaAtual;
+
+    public String getRepublicaAtual() {
+        return republicaAtual;
+    }
+
+    public void setRepublicaAtual(String republicaAtual) {
+        this.republicaAtual = republicaAtual;
+    }
     
     public String getNome() {
         return nome;

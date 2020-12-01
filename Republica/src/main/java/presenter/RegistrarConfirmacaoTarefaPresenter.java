@@ -10,11 +10,11 @@ public class RegistrarConfirmacaoTarefaPresenter {
         this.view = new RegistrarConfirmacaoTarefaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
-        configuraView();
+        configuraTarefaRealizada();
         this.view.setVisible(true);
     }
     
-    public void configuraView() {
+    public void configuraTarefaRealizada() {
         this.view.getJbBotaoRealizada().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

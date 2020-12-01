@@ -23,7 +23,7 @@ public class ConexaoSQLite {
     public boolean conectar(){
         try{
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:C:\\Users\\vitor\\OneDrive\\banco_de_dados\\banco_sqlite.db";
+            String url = "jdbc:sqlite:C:\\Users\\tabat\\OneDrive\\banco_de_dados\\banco_sqlite.db";
             this.conexao = DriverManager.getConnection(url);
         }catch(SQLException e){
             System.err.println(e.getMessage());
@@ -58,6 +58,7 @@ public class ConexaoSQLite {
         try{
             return this.conexao.prepareStatement(sql);
         }catch(SQLException e){
+            System.out.println("sql qualquer coisa" + e.fillInStackTrace());
             return null;
         }
     }

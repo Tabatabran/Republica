@@ -7,6 +7,7 @@ package presenter.ManterPerfil;
 
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
+import presenter.HistoricoMoradorPresenter;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ManterPerfilInicialState extends ManterPerfilState{
     }
     @Override
     public  void exibirHistorico(){
-        
+        new HistoricoMoradorPresenter();
     }
     @Override
     public  void editar(){

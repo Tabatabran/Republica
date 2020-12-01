@@ -9,25 +9,29 @@ public class CadastrarReceitaDespesaPresenter {
     public CadastrarReceitaDespesaPresenter() {
         this.view = new CadastrarReceitaDespesaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        configuraView();
+        configuraBotaoDireita();
+        configuraBotaoEsquerda();
+        confirmarCadastro();
         this.view.setVisible(true);
     }
     
-    public void configuraView() {
+    public void configuraBotaoDireita() {
         this.view.getJbBotaoDireita().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                
             }
         });
-        
+    }
+    public void configuraBotaoEsquerda(){        
         this.view.getJbBotaoEsquerda().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                
             }
         });
-        
+    }
+    public void confirmarCadastro(){        
         this.view.getJbConfirmar().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

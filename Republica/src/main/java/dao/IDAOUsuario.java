@@ -20,4 +20,5 @@ public interface IDAOUsuario {
    public ArrayList<Usuario> consultarUsuariosPorRepublica(String nome_republica);
    public boolean excluirConta();
    public boolean adicionarRepulicaDoUsuario(String idRepublica);
+   public boolean alterarPerfilUsuario();
 }

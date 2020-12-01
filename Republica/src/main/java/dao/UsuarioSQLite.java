@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
+import com.pss.model.RepublicaUsuarioLogado;
+import com.pss.model.Republica;
 
 /**
  *
@@ -84,9 +86,16 @@ public class UsuarioSQLite implements IDAOUsuario{
                          resultSet.getString("telefone2"),
                          resultSet.getString("telefone3"),
                          resultSet.getString("republica"));
+                
+                // pegar a republica do usuario
+                IDAORepublica dao = new RepublicaSQLite();
+                Republica republica = dao.consultarRepublica(resultSet.getString("republica"));
+                //colocar no RepublicaUsuarioLogado.
+                if(republica != null){
+                    RepublicaUsuarioLogado.criarInstancia(republica);
+                }
                 return true;
             }
-                
             else{
                 return false;
             }
@@ -198,6 +207,52 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
         return true;
     }
+    
+    @Override
+    public ArrayList<Usuario> consultarUsuariosPorRepublica(String nome_republica){
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM usuarios WHERE republica = ? ";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nome_republica);
+            resultSet= stmt.executeQuery();
+            while(resultSet.next()){
+                Usuario usuario = new Usuario();
+                usuario.setNome( resultSet.getString("nome_usuario"));
+                usuario.setApelido( resultSet.getString("apelido"));
+                usuario.setCPF( resultSet.getString("cpf"));
+                usuario.setLinkRedeSocial( resultSet.getString("rede_social"));
+                usuario.setTelefone1( resultSet.getString("telefone1"));
+                usuario.setTelefone2( resultSet.getString("telefone2"));
+                usuario.setTelefone3( resultSet.getString("telefone3"));
+                
+                usuarios.add(usuario);
+            }
+            return usuarios;
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
+    
     @Override
     public boolean adicionarRepulicaDoUsuario(String idRepublica){
         ConexaoSQLite conexao= new ConexaoSQLite();

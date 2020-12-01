@@ -10,18 +10,20 @@ public class ListarReceitaDespesaPresenter {
         this.view = new ListarReceitaDespesaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
-        configuraView();
+        confirmarPagamentoRecebimento();
+        consultarResultadoMensal();
         this.view.setVisible(true);
     }
     
-    public void configuraView() {
+    public void confirmarPagamentoRecebimento() {
         this.view.getJbConfimarPagamentoRecebimento().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                
             }
         });
-        
+    }
+    public void consultarResultadoMensal(){        
         this.view.getJbConsultarResultadoMensal().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

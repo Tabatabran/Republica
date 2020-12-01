@@ -3,6 +3,7 @@ package presenter;
 
 import java.awt.event.ActionEvent;
 import presenter.ManterPerfil.ManterPerfilPresenter;
+import view.ManterMoradorView;
 import view.TelaPrincipalView;
 
 /**
@@ -20,8 +21,18 @@ public class TelaPrincipalPresenter {
         manterPerfil();
         CriarRupublica();
         manterTarefas();
+        manterMoradores();
         registrarConclusaoTarefas();
         view.setVisible(true);
+    }
+    
+    public void manterMoradores(){
+        this.view.getjMenuItemManterMoradores().addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManterMoradorPresenter();
+            }
+        });
     }
     
     public void marterRupublica(){

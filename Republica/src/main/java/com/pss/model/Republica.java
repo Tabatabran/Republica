@@ -108,6 +108,4 @@ public class Republica {
     public void setCodigoDeEtica(String codigoDeEtica) {
         this.codigoDeEtica = codigoDeEtica;
     }
-    
-    
 }

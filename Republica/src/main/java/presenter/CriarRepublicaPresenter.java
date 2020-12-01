@@ -6,8 +6,11 @@
 package presenter;
 
 import com.pss.model.Republica;
+import com.pss.model.RepublicaUsuarioLogado;
 import dao.IDAORepublica;
 import dao.RepublicaSQLite;
+import dao.IDAOUsuario;
+import dao.UsuarioSQLite;
 import java.awt.event.ActionEvent;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -55,8 +58,12 @@ public class CriarRepublicaPresenter {
 
                     IDAORepublica dao = new RepublicaSQLite();
                     dao.addRepublica(republica);
+                    
+                    RepublicaUsuarioLogado.criarInstancia(republica);
+                    
+                    IDAOUsuario daoUsuario = new UsuarioSQLite();
+                    daoUsuario.adicionarRepulicaDoUsuario(republica.getNome());
                 }
-
             }
         });
     }

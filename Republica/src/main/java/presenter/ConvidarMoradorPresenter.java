@@ -7,6 +7,7 @@ public class ConvidarMoradorPresenter {
     
     public ConvidarMoradorPresenter(){
         this.view = new ConvidarMoradorView();
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setVisible(true);
     }
 }

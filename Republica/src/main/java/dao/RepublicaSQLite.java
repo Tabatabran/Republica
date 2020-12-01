@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import com.pss.model.Republica;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -43,7 +41,7 @@ public class RepublicaSQLite implements IDAORepublica{
             
             PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);            
             preparedStmt.setString(1, republica.getNome());
-            preparedStmt.setDate(2, Date.valueOf(republica.getDataFundacao()));
+            preparedStmt.setString(2, republica.getDataFundacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
             preparedStmt.setString(3, republica.getEndereco());
             preparedStmt.setString(4, republica.getCEP());
             preparedStmt.setString(5, republica.getBairro());
@@ -81,7 +79,57 @@ public class RepublicaSQLite implements IDAORepublica{
 
     @Override
     public Republica consultarRepublica(String nomeRepublica) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        //ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM republica WHERE nome = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeRepublica);
+            resultSet= stmt.executeQuery();
+            //nome, dataFundacao, endereco, CEP, bairro, pontoDeReferencia, localizacaoGeografica, codigoDeEtica, vantagens, despesasMediasPorMorador, totalDeVagas, vagasDisponiveis, vagasOcupadas
+            // Republica(String nome, LocalDate dataFundacao, String endereco, String CEP, String bairro, String vantagens, double despesasMediasPorMorador, int totalDeVagas, int vagasOcupadas, int vagasDisponiveis, String referencia)
+            if(resultSet.next()){
+                return new Republica(
+                        resultSet.getString("nome"),
+                        LocalDate.parse(resultSet.getString("dataFundacao"), DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        resultSet.getString("endereco"),
+                        resultSet.getString("CEP"),
+                        resultSet.getString("bairro"),
+                        resultSet.getString("vantagens"),
+                        Double.parseDouble(resultSet.getString("despesasMediasPorMorador")),
+                        Integer.parseInt(resultSet.getString("totalDeVagas")),
+                        Integer.parseInt(resultSet.getString("vagasOcupadas")),
+                        Integer.parseInt(resultSet.getString("vagasDisponiveis")), 
+                        resultSet.getString("pontoDeReferencia"));
+            }
+                
+            else{
+                return null;
+            }
+           
+        }catch(SQLException e){
+            System.err.println(e);
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
     }
     
 }
+
+

@@ -22,7 +22,16 @@ public class Usuario {
     private String telefone2;
     private String telefone3;
     private String republicaAtual;
+    private boolean perfil;
 
+    public boolean isPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(boolean perfil) {
+        this.perfil = perfil;
+    }
+    
     public String getRepublicaAtual() {
         return republicaAtual;
     }

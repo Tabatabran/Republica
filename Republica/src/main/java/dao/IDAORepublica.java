@@ -16,4 +16,6 @@ public interface IDAORepublica {
    public void addRepublica(Republica republica);
    public ArrayList<Republica> obterRepublicas();
    public Republica consultarRepublica(String nomeRepublica);
+   public void updateRepublica(Republica republica, String nomeAntigo);
+   public void excluirRepublica(String nome);
 }

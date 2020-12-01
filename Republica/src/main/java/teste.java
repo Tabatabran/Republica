@@ -1,6 +1,7 @@
 
 import presenter.LoginPresenter;
-
+import dao.IDAOUsuario;
+import dao.UsuarioSQLite;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +14,7 @@ import presenter.LoginPresenter;
  */
 public class teste {
     public static void main(String args[]){
+        
         LoginPresenter loginPresenter=new LoginPresenter();
     }
 }

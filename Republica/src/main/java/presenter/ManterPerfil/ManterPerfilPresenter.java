@@ -85,7 +85,7 @@ public class ManterPerfilPresenter {
         
         this.view.getjButtonEditar().setText("Editar");
         
-        UsuarioLogado usuario = UsuarioLogado.getInstancia("", "", "", "", "", "", "", "", "");
+        UsuarioLogado usuario = UsuarioLogado.getInstancia();
         this.view.getjTextFieldApelido().setText(usuario.getApelido());
         this.view.getjTextFieldNome().setText(usuario.getNome());
         this.view.getjTextFieldRedeSocial().setText(usuario.getLinkRedeSocial());

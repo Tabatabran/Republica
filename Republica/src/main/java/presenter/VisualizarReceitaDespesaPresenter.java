@@ -10,18 +10,20 @@ public class VisualizarReceitaDespesaPresenter {
         this.view = new VisualizarReceitaDespesaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
-        configuraView();
+        configuraBotaoDireita();
+        configuraBotaoEsquerda();
         this.view.setVisible(true);
     }
     
-    public void configuraView() {
+    public void configuraBotaoDireita() {
         this.view.getJbBotaoDireita().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                
             }
         });
-        
+    }
+    public void configuraBotaoEsquerda(){        
         this.view.getJbBotaoEsquerda().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

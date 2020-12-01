@@ -69,6 +69,8 @@ public class CriarRepublicaPresenter {
                     
                     IDAOUsuario daoUsuario = new UsuarioSQLite();
                     daoUsuario.adicionarRepulicaDoUsuario(republica.getNome());
+                    
+                    view.dispose();
                 }
             }
         });

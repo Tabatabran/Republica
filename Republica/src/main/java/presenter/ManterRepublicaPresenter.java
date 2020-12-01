@@ -8,7 +8,9 @@ package presenter;
 import com.pss.model.Republica;
 import com.pss.model.UsuarioLogado;
 import dao.IDAORepublica;
+import dao.IDAOUsuario;
 import dao.RepublicaSQLite;
+import dao.UsuarioSQLite;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -23,16 +25,21 @@ public class ManterRepublicaPresenter {
     private ManterRepublicaView view;
 
     public ManterRepublicaPresenter() {
-        this.view = new ManterRepublicaView();
-        this.view.setLocationRelativeTo(null);
-        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        configurarView();
-        botaoEditar();
-        botaoManterMoradores();
-        botaoExcluirRepublica();
+        if (UsuarioLogado.getInstancia().getRepublicaAtual() == null) {
+            JOptionPane.showMessageDialog(null, "Você não está em nunhuma república");
+        } else {
+            this.view = new ManterRepublicaView();
+            this.view.setLocationRelativeTo(null);
+            this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        this.view.setVisible(true);
+            configurarView();
+            botaoEditar();
+            botaoManterMoradores();
+            botaoExcluirRepublica();
+
+            this.view.setVisible(true);
+        }
     }
 
     public void configurarView() {
@@ -81,7 +88,7 @@ public class ManterRepublicaPresenter {
                     republica.setCodigoDeEtica(view.getjTextCodigoDeEtica().getText());
                     republica.setLocalizacaoGeografica(view.getjTextLocalizacaoGeografica().getText());
 
-                    RepublicaSQLite dao = new RepublicaSQLite();
+                    IDAORepublica dao = new RepublicaSQLite();
 
                     dao.updateRepublica(republica, nomeAntigo);
 
@@ -93,19 +100,39 @@ public class ManterRepublicaPresenter {
             }
         });
     }
-    
-    public void botaoManterMoradores(){
+
+    public void botaoManterMoradores() {
         this.view.getjButtonManterMoradores().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ManterMoradorPresenter();
-            }    
+            }
         });
-        
+
     }
-    
-    public void botaoExcluirRepublica(){
-        
+
+    public void botaoExcluirRepublica() {
+        this.view.getjButtonExcluirRepublica().addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (JOptionPane.showConfirmDialog(null, "Deseja excluir a república?", "Aviso",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    String nomeRepublica = UsuarioLogado.getInstancia().getRepublicaAtual();
+
+                    IDAORepublica dao = new RepublicaSQLite();
+                    dao.excluirRepublica(nomeRepublica);
+
+                    UsuarioLogado.getInstancia().setRepublicaAtual(null);
+
+                    IDAOUsuario daoUsuario = new UsuarioSQLite();
+                    daoUsuario.deletarRepublicaAtualDoUsuario(UsuarioLogado.getInstancia().getLogin());
+                    
+                    view.dispose();
+
+                }
+            }
+        });
+
     }
 
 }

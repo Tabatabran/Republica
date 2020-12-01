@@ -210,7 +210,7 @@ public class RepublicaSQLite implements IDAORepublica {
                 if (resultado == 1) {
                     JOptionPane.showMessageDialog(null, "República deletada com sucesso!");
                 } else {
-                    JOptionPane.showMessageDialog(null, "República não deletada");
+                    JOptionPane.showMessageDialog(null, "República não encontrada");
                 }
             } catch (SQLException e) {
                 System.err.println("sql " + e.fillInStackTrace());

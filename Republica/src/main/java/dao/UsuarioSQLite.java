@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
 import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Republica;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -326,4 +328,42 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
         return true;
     }
+
+    @Override
+    public void deletarRepublicaAtualDoUsuario(String nomeUsuario) {
+        ConexaoSQLite conexao = new ConexaoSQLite();
+        boolean conectou = false;
+        try {
+            conectou = conexao.conectar();
+            String sqlInsert = "UPDATE usuarios SET "
+                    + "republica = ?"  
+                    + " WHERE nome_usuario = ?" 
+                    + ";";
+
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);
+            preparedStmt.setString(1, null);
+            preparedStmt.setString(2, nomeUsuario);
+
+            try {
+                int resultado = preparedStmt.executeUpdate();
+                if (resultado == 1) {
+                    System.out.println("ok");
+                } else {
+                    System.out.println("erro ao deletar republica atual do usuario");
+                }
+            } catch (SQLException e) {
+                System.err.println("sql " + e.fillInStackTrace());
+            }
+
+            preparedStmt.close();
+        } catch (SQLException e) {
+            System.err.println("sql deu ruim" + e.fillInStackTrace());
+        } finally {
+            if (conectou) {
+                conexao.desconectar();
+            }
+        }
+    }
+    
+    
 }

@@ -11,29 +11,21 @@ import java.time.LocalDate;
  *
  * @author tabat
  */
-class HistoricoRepublica {
-    protected int codigo;
+public class HistoricoRepublica {
     protected String nomeRepublica;
+    protected LocalDate dataIngresso;
     protected LocalDate dataSaida;
+    protected double rateio;
     protected String nomerepResentante;
     protected String telefoneRepresentante;
     protected double mediaReputacao;
     protected boolean republicaAtual; //se o valor for TRUE a republica é a atual
 
-    public HistoricoRepublica(String nomeRepublica, String nomerepResentante, String telefoneRepresentante, double mediaReputacao, boolean republicaAtual) {
+    public HistoricoRepublica(String nomeRepublica, LocalDate dataIngresso, LocalDate dataSaida, double rateio) {
         this.nomeRepublica = nomeRepublica;
-        this.nomerepResentante = nomerepResentante;
-        this.telefoneRepresentante = telefoneRepresentante;
-        this.mediaReputacao = mediaReputacao;
-        this.republicaAtual = republicaAtual;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+        this.dataIngresso = dataIngresso;
+        this.dataSaida = dataSaida;
+        this.rateio = rateio;
     }
 
     public void setDataSaida(LocalDate dataSaida) {

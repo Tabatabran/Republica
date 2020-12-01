@@ -198,7 +198,38 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
         return true;
     }
-
+    @Override
+    public boolean adicionarRepulicaDoUsuario(String idRepublica){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+        boolean conectou = false;        
+        try{
+            conectou=conexao.conectar();            
+            String sqlUpdate = "UPDATE usuarios SET republica = ? WHERE nome_usuario = ?";             
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlUpdate);
+            if(preparedStmt==null){
+                System.out.println("nao criou o stmt");
+            }
+            //System.out.println(pNome);
+            preparedStmt.setString(1,idRepublica );
+            
+            preparedStmt.setString(2, UsuarioLogado.getInstancia().getLogin());            
+            UsuarioLogado.getInstancia().setRepublicaAtual(idRepublica);
+            
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+            
+            
+            
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+        return true;
+    }
     
     
 }

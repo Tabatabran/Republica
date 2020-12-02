@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
 import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Republica;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -85,8 +87,9 @@ public class UsuarioSQLite implements IDAOUsuario{
                          resultSet.getString("telefone1"), 
                          resultSet.getString("telefone2"),
                          resultSet.getString("telefone3"),
-                         resultSet.getString("republica"));
-                
+                         resultSet.getString("republica"),
+                         resultSet.getBoolean("visibilidade"));
+                         
                 // pegar a republica do usuario
                 IDAORepublica dao = new RepublicaSQLite();
                 Republica republica = dao.consultarRepublica(resultSet.getString("republica"));
@@ -103,7 +106,7 @@ public class UsuarioSQLite implements IDAOUsuario{
           
            
         }catch(SQLException e){
-            System.err.println("SQL buscar funcionario");
+            System.err.println("SQL buscar usuarioLogado"+e.fillInStackTrace());
             return false;
         }finally{
             try{
@@ -258,6 +261,7 @@ public class UsuarioSQLite implements IDAOUsuario{
         ConexaoSQLite conexao= new ConexaoSQLite();
         boolean conectou = false;        
         try{
+            
             conectou=conexao.conectar();            
             String sqlUpdate = "UPDATE usuarios SET republica = ? WHERE nome_usuario = ?";             
             
@@ -284,6 +288,81 @@ public class UsuarioSQLite implements IDAOUsuario{
                 conexao.desconectar();
         }
         return true;
+    }
+    
+    @Override
+    public boolean alterarPerfilUsuario(){
+         ConexaoSQLite conexao= new ConexaoSQLite();
+        boolean conectou = false;        
+        try{              
+            conectou=conexao.conectar();            
+            String sqlUpdate = "UPDATE usuarios SET nome = ?, apelido = ?, rede_social=?, "
+                    + " telefone1 = ?, telefone2 = ?, telefone3 = ?, visibilidade = ? WHERE nome_usuario = ?";             
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlUpdate);
+            if(preparedStmt==null){
+                System.out.println("nao criou o stmt");
+            }
+         
+            preparedStmt.setString(1,UsuarioLogado.getInstancia().getNome() );
+            preparedStmt.setString(2,UsuarioLogado.getInstancia().getApelido());                
+            preparedStmt.setString(3,UsuarioLogado.getInstancia().getLinkRedeSocial());
+            preparedStmt.setString(4,UsuarioLogado.getInstancia().getTelefone1());
+            preparedStmt.setString(5,UsuarioLogado.getInstancia().getTelefone2());
+            preparedStmt.setString(6,UsuarioLogado.getInstancia().getTelefone3());
+            preparedStmt.setBoolean(7,UsuarioLogado.getInstancia().isPerfil());
+            preparedStmt.setString(8, UsuarioLogado.getInstancia().getLogin());            
+            
+            
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+            
+            
+            
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+        return true;
+    }
+
+    @Override
+    public void deletarRepublicaAtualDoUsuario(String nomeUsuario) {
+        ConexaoSQLite conexao = new ConexaoSQLite();
+        boolean conectou = false;
+        try {
+            conectou = conexao.conectar();
+            String sqlInsert = "UPDATE usuarios SET "
+                    + "republica = ?"  
+                    + " WHERE nome_usuario = ?" 
+                    + ";";
+
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);
+            preparedStmt.setString(1, null);
+            preparedStmt.setString(2, nomeUsuario);
+
+            try {
+                int resultado = preparedStmt.executeUpdate();
+                if (resultado == 1) {
+                    System.out.println("ok");
+                } else {
+                    System.out.println("erro ao deletar republica atual do usuario");
+                }
+            } catch (SQLException e) {
+                System.err.println("sql " + e.fillInStackTrace());
+            }
+
+            preparedStmt.close();
+        } catch (SQLException e) {
+            System.err.println("sql deu ruim" + e.fillInStackTrace());
+        } finally {
+            if (conectou) {
+                conexao.desconectar();
+            }
+        }
     }
     
     

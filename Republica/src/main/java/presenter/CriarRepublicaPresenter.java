@@ -7,6 +7,9 @@ package presenter;
 
 import com.pss.model.Republica;
 import com.pss.model.RepublicaUsuarioLogado;
+import com.pss.model.UsuarioLogado;
+import dao.IDAOUsuarioRepublica;
+import dao.UsuarioRepublicaSQLite;
 import dao.IDAORepublica;
 import dao.RepublicaSQLite;
 import dao.IDAOUsuario;
@@ -15,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import view.CriarRepublicaView;
@@ -60,9 +64,15 @@ public class CriarRepublicaPresenter {
                     dao.addRepublica(republica);
                     
                     RepublicaUsuarioLogado.criarInstancia(republica);
+                    // salvar registro no historico
+                    IDAOUsuarioRepublica daoUsuarioRepublica = new UsuarioRepublicaSQLite(); 
+                    
+                    daoUsuarioRepublica.salvarRegistro(UsuarioLogado.getInstancia().getLogin(), republica.getNome(), LocalDate.now());
                     
                     IDAOUsuario daoUsuario = new UsuarioSQLite();
                     daoUsuario.adicionarRepulicaDoUsuario(republica.getNome());
+                    
+                    view.dispose();
                 }
             }
         });

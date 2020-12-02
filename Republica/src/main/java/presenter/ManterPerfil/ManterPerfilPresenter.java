@@ -16,11 +16,12 @@ import view.ManterPerfilView;
  */
 public class ManterPerfilPresenter {
     private ManterPerfilState state;
-    private ManterPerfilView view;
+    protected ManterPerfilView view;
     
     public ManterPerfilPresenter() {
         
         this.view = new ManterPerfilView();
+        this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         excluirConta();
         exibirHistorico();
         editar();
@@ -102,6 +103,11 @@ public class ManterPerfilPresenter {
         
         this.view.getjRadioButtonPublico().setEnabled(false);
         this.view.getjRadioButtonPrivado().setEnabled(false);
+        if(UsuarioLogado.getInstancia().isPerfil()){
+            this.view.getjRadioButtonPublico().setSelected(true);
+        }else{
+            this.view.getjRadioButtonPrivado().setSelected(true);
+        }
         
     }
 }

@@ -58,6 +58,7 @@ public class ConexaoSQLite {
         try{
             return this.conexao.prepareStatement(sql);
         }catch(SQLException e){
+            System.out.println("sql qualquer coisa" + e.fillInStackTrace());
             return null;
         }
     }

@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
-import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Republica;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -90,13 +89,6 @@ public class UsuarioSQLite implements IDAOUsuario{
                          resultSet.getString("republica"),
                          resultSet.getBoolean("visibilidade"));
                          
-                // pegar a republica do usuario
-                IDAORepublica dao = new RepublicaSQLite();
-                Republica republica = dao.consultarRepublica(resultSet.getString("republica"));
-                //colocar no RepublicaUsuarioLogado.
-                if(republica != null){
-                    RepublicaUsuarioLogado.criarInstancia(republica);
-                }
                 return true;
             }
             else{

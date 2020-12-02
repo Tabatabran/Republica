@@ -16,6 +16,22 @@ public class HistoricoRepublica {
     protected LocalDate dataIngresso;
     protected LocalDate dataSaida;
     protected double rateio;
+
+    public LocalDate getDataIngresso() {
+        return dataIngresso;
+    }
+
+    public void setDataIngresso(LocalDate dataIngresso) {
+        this.dataIngresso = dataIngresso;
+    }
+
+    public double getRateio() {
+        return rateio;
+    }
+
+    public void setRateio(double rateio) {
+        this.rateio = rateio;
+    }
     protected String nomerepResentante;
     protected String telefoneRepresentante;
     protected double mediaReputacao;

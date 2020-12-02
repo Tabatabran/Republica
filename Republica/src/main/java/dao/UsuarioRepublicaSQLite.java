@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
@@ -65,8 +66,50 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
     }
 
     @Override
-    public void obterRegistro(String nomeUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<HistoricoRepublica> obterRegistro(String nomeUsuario) {
+        ArrayList<HistoricoRepublica> registros = new ArrayList<HistoricoRepublica>();
+         ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        //ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM usuario_republica WHERE nome_usuario = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeUsuario);
+            resultSet= stmt.executeQuery();
+            while(resultSet.next()){
+                HistoricoRepublica registro;
+                LocalDate dataIngresso = (resultSet.getString("dataIngresso") != null) ? LocalDate.parse(resultSet.getString("dataIngresso")) : null;
+                LocalDate dataSaida = (resultSet.getString("dataSaida") != null) ? LocalDate.parse(resultSet.getString("dataSaida")) : null; 
+                
+                registro = new HistoricoRepublica(
+                        resultSet.getString("nome_republica"),
+                        dataIngresso,
+                        dataSaida,
+                        resultSet.getDouble("rateio") 
+                );
+                registros.add(registro);
+            }
+            return registros;
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
     }
 
     @Override

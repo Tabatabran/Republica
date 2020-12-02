@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author Thiago
@@ -16,6 +19,14 @@ public class HistoricoMoradorView extends javax.swing.JFrame {
      */
     public HistoricoMoradorView() {
         initComponents();
+    }
+
+    public JLabel getjLabelNome() {
+        return jLabelNome;
+    }
+
+    public JTable getjTableHistorico() {
+        return jTableHistorico;
     }
 
     /**

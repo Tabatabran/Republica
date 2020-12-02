@@ -6,7 +6,6 @@
 package presenter;
 
 import com.pss.model.Republica;
-import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.UsuarioLogado;
 import dao.IDAOUsuarioRepublica;
 import dao.UsuarioRepublicaSQLite;
@@ -63,7 +62,6 @@ public class CriarRepublicaPresenter {
                     IDAORepublica dao = new RepublicaSQLite();
                     dao.addRepublica(republica);
                     
-                    RepublicaUsuarioLogado.criarInstancia(republica);
                     // salvar registro no historico
                     IDAOUsuarioRepublica daoUsuarioRepublica = new UsuarioRepublicaSQLite(); 
                     

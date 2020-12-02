@@ -8,6 +8,7 @@ package presenter.ManterPerfil;
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
 import presenter.HistoricoMoradorPresenter;
+import com.pss.model.UsuarioLogado;
 
 /**
  *
@@ -26,7 +27,7 @@ public class ManterPerfilInicialState extends ManterPerfilState{
     }
     @Override
     public  void exibirHistorico(){
-        new HistoricoMoradorPresenter();
+        new HistoricoMoradorPresenter(UsuarioLogado.getInstancia().getLogin());
     }
     @Override
     public  void editar(){

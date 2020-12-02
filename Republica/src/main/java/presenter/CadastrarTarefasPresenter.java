@@ -1,7 +1,6 @@
 package presenter;
 
 import com.pss.model.Republica;
-import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Tarefa;
 import com.pss.model.Usuario;
 import java.awt.event.ActionEvent;

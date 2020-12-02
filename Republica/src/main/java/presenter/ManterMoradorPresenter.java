@@ -4,11 +4,14 @@ import com.pss.model.Republica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.ManterMoradorView;
-import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Usuario;
+import com.pss.model.UsuarioLogado;
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
+import dao.IDAORepublica;
+import dao.RepublicaSQLite;
 import java.util.ArrayList;
+
 
 public class ManterMoradorPresenter {
     private ManterMoradorView view;
@@ -24,7 +27,8 @@ public class ManterMoradorPresenter {
     public void prencherTabelas(){
         ArrayList<Usuario> usuarios;
         IDAOUsuario dao = new UsuarioSQLite();
-        Republica republicaLogada = RepublicaUsuarioLogado.getInstancia();
+        IDAORepublica daoRepublica = new RepublicaSQLite();
+        Republica republicaLogada = daoRepublica.consultarRepublica(UsuarioLogado.getInstancia().getRepublicaAtual());
         if(republicaLogada != null){
             usuarios = dao.consultarUsuariosPorRepublica(republicaLogada.getNome());
         

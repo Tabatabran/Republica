@@ -20,8 +20,21 @@ public class ManterMoradorPresenter {
         this.view = new ManterMoradorView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         prencherTabelas();
+        removerDaRepublica();
         this.convidar();
         this.view.setVisible(true);
+    }
+    
+    public void removerDaRepublica(){
+        this.view.getjButtonRemover().addActionListener((ActionEvent e) -> {
+            if(this.view.getjTableMorador().getSelectedRows().length > 0){
+                int linha = this.view.getjTableMorador().getSelectedRows()[0];
+                String nome_morador = (String) this.view.getjTableMorador().getValueAt(linha, 0);    
+                IDAOUsuario dao = new UsuarioSQLite();
+                dao.deletarRepublicaAtualDoUsuario(nome_morador);
+            }
+        });
+        
     }
     
     public void prencherTabelas(){

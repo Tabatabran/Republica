@@ -283,6 +283,34 @@ public class UsuarioSQLite implements IDAOUsuario{
     }
     
     @Override
+    public boolean adicionarRepulicaDoUsuario(String nome_usuario, String idRepublica){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+        boolean conectou = false;        
+        try{
+            
+            conectou=conexao.conectar();            
+            String sqlUpdate = "UPDATE usuarios SET republica = ? WHERE nome_usuario = ?";             
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlUpdate);
+            if(preparedStmt==null){
+                System.out.println("nao criou o stmt");
+            }
+            preparedStmt.setString(1,idRepublica );
+            preparedStmt.setString(2, nome_usuario);            
+            
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+        return true;
+    }
+    
+    @Override
     public boolean alterarPerfilUsuario(){
          ConexaoSQLite conexao= new ConexaoSQLite();
         boolean conectou = false;        

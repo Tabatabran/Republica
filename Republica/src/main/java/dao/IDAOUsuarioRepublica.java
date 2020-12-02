@@ -15,6 +15,6 @@ import java.time.LocalDate;
 public interface IDAOUsuarioRepublica {
     public HistoricoRepublica obterRegistro(String nomeUsuario, String nomeRepublica);
     public void obterRegistro(String nomeUsuario); // puxa o historico de republica do usuario.
-    public boolean salvarRegistro(String nome_usuatio, String nome_republica);
+    public boolean salvarRegistro(String nome_usuatio, String nome_republica, LocalDate dataIngresso);
     public void updateRegistro(String nome_usuario, String nome_republica, LocalDate dataIngresso, LocalDate dataSaida, Double rateio);
 }

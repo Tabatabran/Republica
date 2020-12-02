@@ -70,7 +70,7 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
     }
 
     @Override
-    public boolean salvarRegistro(String nome_usuario, String nome_republica) {
+    public boolean salvarRegistro(String nome_usuario, String nome_republica, LocalDate dataIngresso) {
         ConexaoSQLite conexao= new ConexaoSQLite();
               boolean conectou = false;        
         try{

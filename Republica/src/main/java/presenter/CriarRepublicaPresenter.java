@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import view.CriarRepublicaView;
@@ -64,8 +65,9 @@ public class CriarRepublicaPresenter {
                     
                     RepublicaUsuarioLogado.criarInstancia(republica);
                     // salvar registro no historico
-                    IDAOUsuarioRepublica daoUsuarioRepublica = new UsuarioRepublicaSQLite();
-                    daoUsuarioRepublica.salvarRegistro(UsuarioLogado.getInstancia().getLogin(), republica.getNome());
+                    IDAOUsuarioRepublica daoUsuarioRepublica = new UsuarioRepublicaSQLite(); 
+                    
+                    daoUsuarioRepublica.salvarRegistro(UsuarioLogado.getInstancia().getLogin(), republica.getNome(), LocalDate.now());
                     
                     IDAOUsuario daoUsuario = new UsuarioSQLite();
                     daoUsuario.adicionarRepulicaDoUsuario(republica.getNome());

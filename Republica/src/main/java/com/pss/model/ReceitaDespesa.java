@@ -14,18 +14,19 @@ import java.util.ArrayList;
  */
 public class ReceitaDespesa {
     protected int codigo;
-    protected String tipo; //receita ou despesa
+    protected String tipo;
     protected String descricao;
-    protected LocalDate dataDeVencimento;
+    protected LocalDate dataVencimento;
+    protected LocalDate dataCadastro;
     protected double valor;
-    protected String periodicidade; // uma vez, semanal ou mensal
-    protected double valorParcela; //caso a periodicidade seja semanal ou mensal, podendo ser valor ou porcentagem
-    protected ArrayList<MoradorParticipante> moradoresparticipantes;
+    protected String periodicidade; 
+    protected double valorParcela; 
+    protected ArrayList<String> moradoresparticipantes;
 
-    public ReceitaDespesa(String tipo, String descricao, LocalDate dataDeVencimento, double valor, String periodicidade, ArrayList<MoradorParticipante> moradoresparticipantes) {
+    public ReceitaDespesa(String tipo, String descricao, LocalDate dataCadastro, double valor, String periodicidade, ArrayList<String> moradoresparticipantes) {
         this.tipo = tipo;
         this.descricao = descricao;
-        this.dataDeVencimento = dataDeVencimento;
+        this.dataCadastro = dataCadastro;
         this.valor = valor;
         this.periodicidade = periodicidade;
         this.moradoresparticipantes = new ArrayList<>();
@@ -48,8 +49,8 @@ public class ReceitaDespesa {
         return descricao;
     }
 
-    public LocalDate getDataDeVencimento() {
-        return dataDeVencimento;
+    public LocalDate getDataVencimento() {
+        return dataVencimento;
     }
 
     public double getValor() {
@@ -64,12 +65,20 @@ public class ReceitaDespesa {
         return valorParcela;
     }
 
-    public ArrayList<MoradorParticipante> getMoradoresparticipantes() {
+    public ArrayList<String> getMoradoresparticipantes() {
         return moradoresparticipantes;
     }
 
     public void setValorParcela(double valorParcela) {
         this.valorParcela = valorParcela;
+    }
+
+    public void setDataVencimento(LocalDate dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
     }
     
     

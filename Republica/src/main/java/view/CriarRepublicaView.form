@@ -121,7 +121,7 @@
                       </Group>
                       <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -180,8 +180,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Data da funda&#xe7;&#xe3;o:*"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextDataFundacao">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -259,6 +257,16 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JFormattedTextField" name="jTextDataFundacao">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##/##/####" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="CadastrarReceitaDespesaView_jftDataVencimento"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -291,9 +299,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jTextCEP" max="32767" attributes="0"/>
+                              <Component id="jTextCEP" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -360,12 +368,21 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextLocalizacaoGeografica">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextCEP">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="text" type="java.lang.String" value="CEP:*"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jTextCEP">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="try{" postCode="}catch(java.text.ParseException ex){&#xa;        ex.printStackTrace();&#xa;}">
+              <Connection code="new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(&quot;##.###-###&quot;))" type="code"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=""/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="CadastrarReceitaDespesaView_jftDataVencimento"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

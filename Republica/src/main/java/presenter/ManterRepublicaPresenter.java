@@ -38,6 +38,7 @@ public class ManterRepublicaPresenter {
             botaoEditar();
             botaoManterMoradores();
             botaoExcluirRepublica();
+            preencherVagasDisponiveis();
 
             this.view.setVisible(true);
         }
@@ -70,7 +71,7 @@ public class ManterRepublicaPresenter {
                 String nomeAntigo = UsuarioLogado.getInstancia().getRepublicaAtual();
                 if (Integer.parseInt(view.getjTextVagasOcupadas().getText()) > Integer.parseInt(view.getjTextTotalDeVagas().getText())) {
                     JOptionPane.showMessageDialog(null, "Número de vagas ocupadas superior ao total!");
-                } else if (view.getjTextNome().getText().isEmpty() || view.getjTextDataDaFundacao().getText().isEmpty() || view.getjTextLogradouro().getText().isEmpty() || view.getjTextCEP().getText().isEmpty() || view.getjTextBairro().getText().isEmpty() || view.getjTextVantagens().getText().isEmpty() || view.getjTextDespesasMediasPorMorador().getText().isEmpty() || view.getjTextTotalDeVagas().getText().isEmpty() || view.getjTextVagasOcupadas().getText().isEmpty() || view.getjTextVagasDisponiveis().getText().isEmpty()) {
+                } else if (view.getjTextNome().getText().isEmpty() || view.getjTextDataDaFundacao().getText().isEmpty() || view.getjTextLogradouro().getText().isEmpty() || view.getjTextCEP().getText().isEmpty() || view.getjTextBairro().getText().isEmpty() || view.getjTextVantagens().getText().isEmpty() || view.getjTextDespesasMediasPorMorador().getText().isEmpty() || view.getjTextTotalDeVagas().getText().isEmpty() || view.getjTextVagasOcupadas().getText().isEmpty() || view.getjTextVagasDisponiveis().getText().isEmpty() || view.getjTextPontoDeReferencia().getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios!");
                 } else {
                     Republica republica = new Republica(
@@ -134,6 +135,24 @@ public class ManterRepublicaPresenter {
             }
         });
 
+    }
+    
+    public void preencherVagasDisponiveis() {
+        this.view.getjTextVagasOcupadas().addKeyListener(new java.awt.event.KeyListener() {
+            public void keyTyped(java.awt.event.KeyEvent e) {   
+            }
+
+            public void keyPressed(java.awt.event.KeyEvent e) {
+            }
+
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                
+                int valor = Integer.valueOf(view.getjTextTotalDeVagas().getText()) - Integer.valueOf(view.getjTextVagasOcupadas().getText());
+
+                view.getjTextVagasDisponiveis().setText(String.valueOf(valor));
+                
+            }
+        });
     }
 
 }

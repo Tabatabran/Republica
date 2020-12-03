@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -36,7 +39,6 @@ public class CriarRepublicaView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextDataFundacao = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextDespesasMediasMorador = new javax.swing.JTextField();
         jTextTotalVagas = new javax.swing.JTextField();
@@ -52,6 +54,7 @@ public class CriarRepublicaView extends javax.swing.JFrame {
         jTextVantagens = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextCodigoEtica = new javax.swing.JTextArea();
+        jTextDataFundacao = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jTextLogradouro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -61,8 +64,8 @@ public class CriarRepublicaView extends javax.swing.JFrame {
         jTextPontoReferencia = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextLocalizacaoGeografica = new javax.swing.JTextField();
-        jTextCEP = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jTextCEP = new javax.swing.JFormattedTextField();
         jButtonConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +98,12 @@ public class CriarRepublicaView extends javax.swing.JFrame {
         jTextCodigoEtica.setColumns(20);
         jTextCodigoEtica.setRows(5);
         jScrollPane2.setViewportView(jTextCodigoEtica);
+
+        try {
+            jTextDataFundacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,6 +196,13 @@ public class CriarRepublicaView extends javax.swing.JFrame {
 
         jLabel13.setText("CEP:*");
 
+        try{
+            jTextCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
+        }catch(java.text.ParseException ex){
+            ex.printStackTrace();
+        }
+        jTextCEP.setText("");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -208,7 +224,7 @@ public class CriarRepublicaView extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 277, Short.MAX_VALUE))
                             .addComponent(jTextCEP))))
                 .addContainerGap())
         );
@@ -359,9 +375,9 @@ public class CriarRepublicaView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextBairro;
-    private javax.swing.JTextField jTextCEP;
+    private javax.swing.JFormattedTextField jTextCEP;
     private javax.swing.JTextArea jTextCodigoEtica;
-    private javax.swing.JTextField jTextDataFundacao;
+    private javax.swing.JFormattedTextField jTextDataFundacao;
     private javax.swing.JTextField jTextDespesasMediasMorador;
     private javax.swing.JTextField jTextLocalizacaoGeografica;
     private javax.swing.JTextField jTextLogradouro;

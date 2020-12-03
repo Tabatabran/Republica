@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JList;
@@ -10,111 +11,78 @@ public class CadastrarReceitaDespesaView extends javax.swing.JFrame {
 
     public CadastrarReceitaDespesaView() {
         initComponents();
+        
+    }
+
+    public ButtonGroup getButtonGroupPeridiocidade() {
+        return buttonGroupPeridiocidade;
+    }
+
+    public ButtonGroup getButtonGroupTipo() {
+        return buttonGroupTipo;
     }
 
     public JButton getJbBotaoDireita() {
         return jbBotaoDireita;
     }
 
-    public void setJbBotaoDireita(JButton jbBotaoDireita) {
-        this.jbBotaoDireita = jbBotaoDireita;
-    }
-
     public JButton getJbBotaoEsquerda() {
         return jbBotaoEsquerda;
-    }
-
-    public void setJbBotaoEsquerda(JButton jbBotaoEsquerda) {
-        this.jbBotaoEsquerda = jbBotaoEsquerda;
     }
 
     public JButton getJbConfirmar() {
         return jbConfirmar;
     }
 
-    public void setJbConfirmar(JButton jbConfirmar) {
-        this.jbConfirmar = jbConfirmar;
+    public JFormattedTextField getJftDataCadastro() {
+        return jftDataCadastro;
     }
 
     public JFormattedTextField getJftDataVencimento() {
         return jftDataVencimento;
     }
 
-    public void setJftDataVencimento(JFormattedTextField jftDataVencimento) {
-        this.jftDataVencimento = jftDataVencimento;
+    public JList<String> getJlListaMoradorDireita() {
+        return jlListaMoradorDireita;
     }
 
     public JList<String> getJlListaMoradorEsquerda() {
         return jlListaMoradorEsquerda;
     }
 
-    public void setJlListaMoradorEsquerda(JList<String> jlListaMoradorEsquerda) {
-        this.jlListaMoradorEsquerda = jlListaMoradorEsquerda;
-    }
-
     public JRadioButton getJrbAnual() {
         return jrbAnual;
-    }
-
-    public void setJrbAnual(JRadioButton jrbAnual) {
-        this.jrbAnual = jrbAnual;
     }
 
     public JRadioButton getJrbDespesa() {
         return jrbDespesa;
     }
 
-    public void setJrbDespesa(JRadioButton jrbDespesa) {
-        this.jrbDespesa = jrbDespesa;
-    }
-
     public JRadioButton getJrbIndefinido() {
         return jrbIndefinido;
-    }
-
-    public void setJrbIndefinido(JRadioButton jrbIndefinido) {
-        this.jrbIndefinido = jrbIndefinido;
     }
 
     public JRadioButton getJrbMensal() {
         return jrbMensal;
     }
 
-    public void setJrbMensal(JRadioButton jrbMensal) {
-        this.jrbMensal = jrbMensal;
-    }
-
     public JRadioButton getJrbReceita() {
         return jrbReceita;
-    }
-
-    public void setJrbReceita(JRadioButton jrbReceita) {
-        this.jrbReceita = jrbReceita;
     }
 
     public JRadioButton getJrbSemanal() {
         return jrbSemanal;
     }
 
-    public void setJrbSemanal(JRadioButton jrbSemanal) {
-        this.jrbSemanal = jrbSemanal;
-    }
-
     public JTextField getJtDescricaoReceitaDespesa() {
         return jtDescricaoReceitaDespesa;
-    }
-
-    public void setJtDescricaoReceitaDespesa(JTextField jtDescricaoReceitaDespesa) {
-        this.jtDescricaoReceitaDespesa = jtDescricaoReceitaDespesa;
     }
 
     public JTextField getJtValor() {
         return jtValor;
     }
 
-    public void setJtValor(JTextField jtValor) {
-        this.jtValor = jtValor;
-    }
+    
     
 
     
@@ -122,6 +90,8 @@ public class CadastrarReceitaDespesaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupTipo = new javax.swing.ButtonGroup();
+        buttonGroupPeridiocidade = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jrbReceita = new javax.swing.JRadioButton();
@@ -154,8 +124,10 @@ public class CadastrarReceitaDespesaView extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo:");
 
+        buttonGroupTipo.add(jrbReceita);
         jrbReceita.setText("Receita");
 
+        buttonGroupTipo.add(jrbDespesa);
         jrbDespesa.setText("Despesa");
 
         jLabel1.setText("Descrição da Receita/Despesa:");
@@ -181,23 +153,23 @@ public class CadastrarReceitaDespesaView extends javax.swing.JFrame {
 
         jLabel6.setText("Periodicidade:");
 
+        buttonGroupPeridiocidade.add(jrbAnual);
         jrbAnual.setText("Anual");
 
+        buttonGroupPeridiocidade.add(jrbMensal);
         jrbMensal.setText("Mensal");
 
+        buttonGroupPeridiocidade.add(jrbSemanal);
         jrbSemanal.setText("Semanal");
 
+        buttonGroupPeridiocidade.add(jrbIndefinido);
         jrbIndefinido.setText("Indefinido");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Responsáveis pela Receita/Despesa"));
 
         jLabel7.setText("Moradores");
 
-        jlListaMoradorEsquerda.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Morador 1", "Morador 2", "Morador 3", "Morador 4", "Morador 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jlListaMoradorEsquerda.setToolTipText("");
         jScrollPane3.setViewportView(jlListaMoradorEsquerda);
 
         jScrollPane2.setViewportView(jlListaMoradorDireita);
@@ -367,6 +339,8 @@ public class CadastrarReceitaDespesaView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupPeridiocidade;
+    private javax.swing.ButtonGroup buttonGroupTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -1,4 +1,4 @@
-package presenter;
+package presenter.manterReceitaDespesa;
 
 import java.awt.event.ActionEvent;
 import view.ManterReceitasDespesasView;
@@ -30,7 +30,7 @@ public class ManterReceitaDespesaPresenter {
         this.view.getJbCadastrarReceitaDespesa().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               
+               new CadastrarReceitaDespesaPresenter();
             }
         });
     }

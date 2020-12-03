@@ -11,10 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
-import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Republica;
-import java.time.format.DateTimeFormatter;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -90,13 +88,6 @@ public class UsuarioSQLite implements IDAOUsuario{
                          resultSet.getString("republica"),
                          resultSet.getBoolean("visibilidade"));
                          
-                // pegar a republica do usuario
-                IDAORepublica dao = new RepublicaSQLite();
-                Republica republica = dao.consultarRepublica(resultSet.getString("republica"));
-                //colocar no RepublicaUsuarioLogado.
-                if(republica != null){
-                    RepublicaUsuarioLogado.criarInstancia(republica);
-                }
                 return true;
             }
             else{
@@ -291,6 +282,34 @@ public class UsuarioSQLite implements IDAOUsuario{
     }
     
     @Override
+    public boolean adicionarRepulicaDoUsuario(String nome_usuario, String idRepublica){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+        boolean conectou = false;        
+        try{
+            
+            conectou=conexao.conectar();            
+            String sqlUpdate = "UPDATE usuarios SET republica = ? WHERE nome_usuario = ?";             
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlUpdate);
+            if(preparedStmt==null){
+                System.out.println("nao criou o stmt");
+            }
+            preparedStmt.setString(1,idRepublica );
+            preparedStmt.setString(2, nome_usuario);            
+            
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+        return true;
+    }
+    
+    @Override
     public boolean alterarPerfilUsuario(){
          ConexaoSQLite conexao= new ConexaoSQLite();
         boolean conectou = false;        
@@ -365,5 +384,46 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
     }
     
+    
+    @Override
+    public String[] obterUsuariosNaRepublicaAtual(String nomeRepublica) {
+        String[] nomesUsuarios = new String[30];
+        int i = 1;
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT nome FROM usuarios WHERE republica = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeRepublica);
+            resultSet= stmt.executeQuery();
+            
+            while(resultSet.next()){
+                nomesUsuarios[i] = resultSet.getString("nome");
+                i += 1;
+            }
+            
+            return nomesUsuarios;
+            
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("sql erro"); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
     
 }

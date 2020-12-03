@@ -47,10 +47,10 @@ public class TelaPrincipalView extends javax.swing.JFrame {
         jMenuItemManterTarefas = new javax.swing.JMenuItem();
         jMenuItemRegistrarConclusao = new javax.swing.JMenuItem();
         jMenulancamentos = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItemManterReceitaDespesa = new javax.swing.JMenuItem();
+        jMenuItemFazerEstornoLancamento = new javax.swing.JMenuItem();
+        jMenuItemConsultarMinhasReceitasDespesas = new javax.swing.JMenuItem();
+        jMenuItemRegistrarPagamentoReceitaDespesa = new javax.swing.JMenuItem();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
 
@@ -107,17 +107,17 @@ public class TelaPrincipalView extends javax.swing.JFrame {
 
         jMenulancamentos.setText("Lançamentos");
 
-        jMenuItem13.setText("jMenuItem13");
-        jMenulancamentos.add(jMenuItem13);
+        jMenuItemManterReceitaDespesa.setText("Manter receitas e despesas");
+        jMenulancamentos.add(jMenuItemManterReceitaDespesa);
 
-        jMenuItem14.setText("jMenuItem14");
-        jMenulancamentos.add(jMenuItem14);
+        jMenuItemFazerEstornoLancamento.setText("Fazer estorno de lançamentos");
+        jMenulancamentos.add(jMenuItemFazerEstornoLancamento);
 
-        jMenuItem15.setText("jMenuItem15");
-        jMenulancamentos.add(jMenuItem15);
+        jMenuItemConsultarMinhasReceitasDespesas.setText("Consultar minhas receitas e despesas");
+        jMenulancamentos.add(jMenuItemConsultarMinhasReceitasDespesas);
 
-        jMenuItem16.setText("jMenuItem16");
-        jMenulancamentos.add(jMenuItem16);
+        jMenuItemRegistrarPagamentoReceitaDespesa.setText("Registrar pagamento de receita ou despesa");
+        jMenulancamentos.add(jMenuItemRegistrarPagamentoReceitaDespesa);
 
         jMenuBar1.add(jMenulancamentos);
 
@@ -144,24 +144,26 @@ public class TelaPrincipalView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    
+
+    public JMenuItem getjMenuItemConsultarMinhasReceitasDespesas() {
+        return jMenuItemConsultarMinhasReceitasDespesas;
+    }
+
+    public JMenuItem getjMenuItemFazerEstornoLancamento() {
+        return jMenuItemFazerEstornoLancamento;
+    }
+
+    public JMenuItem getjMenuItemManterReceitaDespesa() {
+        return jMenuItemManterReceitaDespesa;
+    }
+
     /**
      * @param args the command line arguments
      */
-
-    public JMenuItem getjMenuItem13() {
-        return jMenuItem13;
-    }
-
-    public JMenuItem getjMenuItem14() {
-        return jMenuItem14;
-    }
-
-    public JMenuItem getjMenuItem15() {
-        return jMenuItem15;
-    }
-
-    public JMenuItem getjMenuItem16() {
-        return jMenuItem16;
+    public JMenuItem getjMenuItemRegistrarPagamentoReceitaDespesa() {
+        return jMenuItemRegistrarPagamentoReceitaDespesa;
     }
 
     public JMenuItem getjMenuItemAceitarConvite() {
@@ -242,22 +244,22 @@ public class TelaPrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItemAceitarConvite;
     private javax.swing.JMenuItem jMenuItemBuscarVagas;
     private javax.swing.JMenuItem jMenuItemConfirmarSolucoes;
+    private javax.swing.JMenuItem jMenuItemConsultarMinhasReceitasDespesas;
     private javax.swing.JMenuItem jMenuItemConsultarResultadoMensal;
     private javax.swing.JMenuItem jMenuItemConvidarAceitarConvites;
     private javax.swing.JMenuItem jMenuItemCriarRepublica;
+    private javax.swing.JMenuItem jMenuItemFazerEstornoLancamento;
     private javax.swing.JMenuItem jMenuItemManterMoradores;
     private javax.swing.JMenuItem jMenuItemManterPerfil;
+    private javax.swing.JMenuItem jMenuItemManterReceitaDespesa;
     private javax.swing.JMenuItem jMenuItemManterReclamacoesSugestoes;
     private javax.swing.JMenuItem jMenuItemManterRepublica;
     private javax.swing.JMenuItem jMenuItemManterTarefas;
     private javax.swing.JMenuItem jMenuItemRegistrarConclusao;
+    private javax.swing.JMenuItem jMenuItemRegistrarPagamentoReceitaDespesa;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuMorador;
     private javax.swing.JMenu jMenuOpcoes;

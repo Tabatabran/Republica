@@ -386,8 +386,9 @@ public class UsuarioSQLite implements IDAOUsuario{
     
     
     @Override
-    public String[] obterUsuariosNaRepublicaAtual(String nomeRepublica) {
-        String[] nomesUsuarios = new String[30];
+    public ArrayList<String> obterUsuariosNaRepublicaAtual(String nomeRepublica) {
+        //String[] nomesUsuarios = new String[30];
+        ArrayList<String> nomeUsuarios= new ArrayList<>();
         int i = 1;
         ConexaoSQLite conexao= new ConexaoSQLite();
           
@@ -403,12 +404,13 @@ public class UsuarioSQLite implements IDAOUsuario{
             resultSet= stmt.executeQuery();
             
             while(resultSet.next()){
-                nomesUsuarios[i] = resultSet.getString("nome");
-                i += 1;
+                //nomesUsuarios[i] = resultSet.getString("nome");
+                //i += 1;
+                nomeUsuarios.add(resultSet.getString("nome"));
             }
             
-            return nomesUsuarios;
-            
+            //return nomesUsuarios;
+            return nomeUsuarios;
         }catch(SQLException e){
             System.err.println("SQL buscar funcionario");
             return null;

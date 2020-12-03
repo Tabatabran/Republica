@@ -19,7 +19,7 @@ import view.CadastrarReceitaDespesaView;
 public class CadastrarReceitaDespesaPresenter {
 
     private CadastrarReceitaDespesaView view;
-    private String[] nomesEsquerda;
+    private ArrayList<String> nomesEsquerda;
     private String[] nomesDireita;
     private DefaultListModel modelEsquerda = new DefaultListModel();
     private DefaultListModel modelDireita = new DefaultListModel();
@@ -38,8 +38,8 @@ public class CadastrarReceitaDespesaPresenter {
         IDAOUsuario dao = new UsuarioSQLite();
         nomesEsquerda = dao.obterUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
         
-        for (int i = 0; i < nomesEsquerda.length; i++) {
-            modelEsquerda.addElement(nomesEsquerda[i]); 
+        for (String s: nomesEsquerda) {
+            modelEsquerda.addElement(s);
         }
 
         view.getJlListaMoradorEsquerda().setModel(modelEsquerda);

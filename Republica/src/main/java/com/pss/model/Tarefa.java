@@ -16,12 +16,12 @@ import java.util.ArrayList;
 public class Tarefa {
     protected int codigo;
     protected LocalDate dataAgendamento;
-    protected ArrayList<Morador> responsaveis;
+    protected ArrayList<Usuario> responsaveis;
     protected String descricao;
     protected LocalDate dataTermino;
     protected boolean finalizada; //se true a tarefa é marcada como concluída
 
-    public Tarefa(int codigo, LocalDate dataAgendamento, ArrayList<Morador> responsaveis, String descricao, LocalDate dataTermino) {
+    public Tarefa(int codigo, LocalDate dataAgendamento, ArrayList<Usuario> responsaveis, String descricao, LocalDate dataTermino) {
         this.codigo = codigo;
         this.dataAgendamento = dataAgendamento;
         this.responsaveis = responsaveis;
@@ -49,7 +49,7 @@ public class Tarefa {
         return dataAgendamento;
     }
 
-    public ArrayList<Morador> getResponsaveis() {
+    public ArrayList<Usuario> getResponsaveis() {
         return responsaveis;
     }
 
@@ -59,6 +59,25 @@ public class Tarefa {
 
     public LocalDate getDataTermino() {
         return dataTermino;
+    }
+
+    public void setDataAgendamento(LocalDate dataAgendamento) {
+        this.dataAgendamento = dataAgendamento;
+    }
+
+    public void setResponsaveis(ArrayList<Usuario> responsaveis) {
+        this.responsaveis = responsaveis;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setDataTermino(LocalDate dataTermino) {
+        this.dataTermino = dataTermino;
+    }
+    public void addResponsavel(Usuario usuario){
+        this.responsaveis.add(usuario);
     }
     
     // transforma o LocalDate em String

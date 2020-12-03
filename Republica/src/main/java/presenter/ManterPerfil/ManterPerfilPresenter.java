@@ -8,6 +8,7 @@ package presenter.ManterPerfil;
 import com.pss.model.Usuario;
 import com.pss.model.UsuarioLogado;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 import view.ManterPerfilView;
 
 /**
@@ -38,6 +39,9 @@ public class ManterPerfilPresenter {
          @Override
          public void actionPerformed(ActionEvent e) {
              state.excluirConta();
+             System.exit(0);
+            
+              
          }
      });
     }

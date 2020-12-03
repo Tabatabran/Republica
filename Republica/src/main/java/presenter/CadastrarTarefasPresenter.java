@@ -9,6 +9,8 @@ import view.CadastrarTarefasView;
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 public class CadastrarTarefasPresenter {
     private CadastrarTarefasView view;
@@ -55,7 +57,35 @@ public class CadastrarTarefasPresenter {
             this.view.getJbBotaoDireita().addActionListener(new java.awt.event.ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    DefaultListModel model;
+                    
+                    if(view.getJlListaMoradorEsquerda().getSelectedIndex()>=0){
+                        System.out.println("deu certo");
+                        //view.getJlListaMoradorEsquerda().remove(view.getJlListaMoradorEsquerda().getSelectedIndex());
+                        
+                        
+                        model= (DefaultListModel) view.getJlListaMoradorDireita().getModel();
+                        model.addElement(view.getJlListaMoradorDireita().getSelectedValue());
+                        
+                        model=(DefaultListModel) view.getJlListaMoradorEsquerda().getModel();
+                        model.remove(view.getJlListaMoradorEsquerda().getSelectedIndex());
+                        
+                        view.getJlListaMoradorDireita().revalidate();
+                        view.getJlListaMoradorEsquerda().revalidate();
+                        view.repaint();
+                        view.getJlListaMoradorEsquerda().updateUI();
+                         view.getJlListaMoradorDireita().updateUI();
+                        
+                        
+                    }
+                    
+                   
+                    
+                    //model.addElement(model);
+                    model=(DefaultListModel) view.getJlListaMoradorEsquerda().getModel();
+                    //view.getJlListaMoradorEsquerda().setModel(model);
+                    model.addElement("fulano");
+                    //
                 }
             });
         }
@@ -63,7 +93,23 @@ public class CadastrarTarefasPresenter {
             this.view.getJbBotaoEsquerda().addActionListener(new java.awt.event.ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                     DefaultListModel model;
+                    
+                    if(view.getJlListaMoradorDireita().getSelectedIndex()>=0){
+                        System.out.println("deu certo");
+                        //view.getJlListaMoradorEsquerda().remove(view.getJlListaMoradorEsquerda().getSelectedIndex());
+                        
+                        
+                        model= (DefaultListModel) view.getJlListaMoradorEsquerda().getModel();
+                        model.addElement(view.getJlListaMoradorEsquerda().getSelectedValue());
+                        
+                        model=(DefaultListModel) view.getJlListaMoradorDireita().getModel();
+                        model.remove(view.getJlListaMoradorDireita().getSelectedIndex());
+                        view.getJlListaMoradorEsquerda().revalidate();
+                        view.repaint();
+                        //view.getJlListaMoradorEsquerda().updateUI();
+                        
+                    }
                 }
             });
         }

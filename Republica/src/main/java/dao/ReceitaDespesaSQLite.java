@@ -28,14 +28,14 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
 
         try {
             conectou = conexao.conectar();
-            String sqlInsert = "INSERT INTO receitas_despesas("
+            String sqlInsert = "INSERT INTO receitas_Despesas("
                     + "republica,"
                     + "tipo,"
                     + "descricao,"
                     + "dataVencimento,"
                     + "dataCadastro,"
                     + "valor,"
-                    + "periodicidade"
+                    + "periodicidade,"
                     + "valorParcela"
                     + ") VALUES(?,?,?,?,?,?,?,?)"
                     + ";";
@@ -81,7 +81,7 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
             PreparedStatement stmtID = null;
             conectou = conexao.conectar();
 
-            String queryID = "SELECT MAX(id_receitas) FROM receitas_despesas";
+            String queryID = "SELECT MAX(id_receitas) FROM receitas_Despesas";
             stmtID = conexao.criarPreparedStatement(queryID);
 
             int id = resultSet.getInt("id_receitas");

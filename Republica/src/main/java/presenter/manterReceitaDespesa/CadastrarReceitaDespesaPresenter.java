@@ -118,13 +118,13 @@ public class CadastrarReceitaDespesaPresenter {
                     
                     ReceitaDespesa receitaDespesa = new ReceitaDespesa(tipo,
                         view.getJtDescricaoReceitaDespesa().getText(),
-                        LocalDate.parse(view.getJftDataCadastro().getText()),
+                        LocalDate.parse(view.getJftDataCadastro().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                         Double.parseDouble(view.getJtValor().getText()),
                         periodicidade,
                         nomesMoradores);
                     
                     if (!view.getJftDataVencimento().getText().isEmpty()){
-                        receitaDespesa.setDataVencimento(LocalDate.parse(view.getJftDataVencimento().getText()));
+                        receitaDespesa.setDataVencimento(LocalDate.parse(view.getJftDataVencimento().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                     }
                     
                     ICalculoParcelasDespesa calculoParcela = new CalculoParcelaDespesaPorMorador();

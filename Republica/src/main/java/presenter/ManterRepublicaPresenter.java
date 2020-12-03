@@ -13,6 +13,7 @@ import dao.RepublicaSQLite;
 import dao.UsuarioSQLite;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import presenter.ManterMoradorPresenter;
 import view.ManterRepublicaView;
@@ -51,7 +52,7 @@ public class ManterRepublicaPresenter {
         view.getjTextBairro().setText(republica.getBairro());
         view.getjTextCEP().setText(republica.getCEP());
         view.getjTextCodigoDeEtica().setText(republica.getCodigoDeEtica());
-        view.getjTextDataDaFundacao().setText(String.valueOf(republica.getDataFundacao()));
+        view.getjTextDataDaFundacao().setText(String.valueOf(republica.getDataFundacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
         view.getjTextDespesasMediasPorMorador().setText(String.valueOf(republica.getDespesasMediasPorMorador()));
         view.getjTextLocalizacaoGeografica().setText(republica.getLocalizacaoGeografica());
         view.getjTextLogradouro().setText(republica.getEndereco());
@@ -76,7 +77,7 @@ public class ManterRepublicaPresenter {
                 } else {
                     Republica republica = new Republica(
                             view.getjTextNome().getText(),
-                            LocalDate.parse(view.getjTextDataDaFundacao().getText()),
+                            LocalDate.parse(view.getjTextDataDaFundacao().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                             view.getjTextLogradouro().getText(),
                             view.getjTextCEP().getText(),
                             view.getjTextBairro().getText(),
@@ -97,6 +98,8 @@ public class ManterRepublicaPresenter {
                     if (nomeAntigo != view.getjTextNome().getText()) {
                         UsuarioLogado.getInstancia().setRepublicaAtual(view.getjTextNome().getText());
                     }
+                    
+                    view.dispose();
                 }
 
             }

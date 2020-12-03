@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -28,14 +29,14 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
 
         try {
             conectou = conexao.conectar();
-            String sqlInsert = "INSERT INTO receitas_despesas("
+            String sqlInsert = "INSERT INTO receitas_Despesas("
                     + "republica,"
                     + "tipo,"
                     + "descricao,"
                     + "dataVencimento,"
                     + "dataCadastro,"
                     + "valor,"
-                    + "periodicidade"
+                    + "periodicidade,"
                     + "valorParcela"
                     + ") VALUES(?,?,?,?,?,?,?,?)"
                     + ";";
@@ -44,8 +45,8 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
             preparedStmt.setString(1, UsuarioLogado.getInstancia().getRepublicaAtual());
             preparedStmt.setString(2, receitaDespesa.getTipo());
             preparedStmt.setString(3, receitaDespesa.getDescricao());
-            preparedStmt.setDate(4, Date.valueOf(receitaDespesa.getDataVencimento()));
-            preparedStmt.setDate(5, Date.valueOf(receitaDespesa.getDataCadastro()));
+            preparedStmt.setString(4, receitaDespesa.getDataVencimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));            
+            preparedStmt.setString(5, receitaDespesa.getDataCadastro().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             preparedStmt.setDouble(6, receitaDespesa.getValor());
             preparedStmt.setString(7, receitaDespesa.getPeriodicidade());
             preparedStmt.setDouble(8, receitaDespesa.getValorParcela());
@@ -81,13 +82,16 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
             PreparedStatement stmtID = null;
             conectou = conexao.conectar();
 
-            String queryID = "SELECT MAX(id_receitas) FROM receitas_despesas";
+            String queryID = "SELECT MAX(id_receitas) AS id FROM receitas_Despesas";
             stmtID = conexao.criarPreparedStatement(queryID);
+            
+            resultSet = stmtID.executeQuery();
 
-            int id = resultSet.getInt("id_receitas");
+            int id = resultSet.getInt("id");
+            
+            System.out.println(id);
 
-            for (String nome: receitaDespesa.getMoradoresparticipantes()) {
-                conectou = conexao.conectar();
+            for (String nome: receitaDespesa.getMoradoresparticipantes()){
                 
                 String sqlInsert = "INSERT INTO receitas_despesas_usuarios_participantes("
                         + "id_receitas,"
@@ -109,7 +113,7 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
                 preparedStmt.close();
             }
         } catch (SQLException e) {
-            System.err.println("sql deu ruim");
+            System.err.println("sql deu ruim nos moradores participantes" + e.fillInStackTrace());
         } finally {
             if (conectou) {
                 conexao.desconectar();

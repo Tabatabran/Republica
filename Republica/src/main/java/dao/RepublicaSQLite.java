@@ -108,6 +108,7 @@ public class RepublicaSQLite implements IDAORepublica {
                 republica.setCodigoDeEtica(resultSet.getString("codigoDeEtica"));
                 republica.setLocalizacaoGeografica(resultSet.getString("localizacaoGeografica"));
 
+                System.out.println(republica.getDataFundacao());
                 return republica;
 
             } else {

@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,7 +24,7 @@ public class ConexaoSQLite {
     public boolean conectar(){
         try{
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:C:\\Users\\tabat\\OneDrive\\banco_de_dados\\banco_sqlite.db";
+            String url = "jdbc:sqlite:C:\\Users\\thiago\\OneDrive\\banco_de_dados\\banco_sqlite.db";
             this.conexao = DriverManager.getConnection(url);
         }catch(SQLException e){
             System.err.println(e.getMessage());

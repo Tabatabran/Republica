@@ -100,17 +100,17 @@ public class CadastrarReceitaDespesaPresenter {
                     String tipo;
                     String periodicidade;
                     
-                    if(view.getButtonGroupTipo().getSelection() == view.getJrbReceita()){
+                    if(view.getJrbReceita().isSelected()){
                         tipo = "Receita";
                     }else{
                         tipo = "Despesa";
                     }
                     
-                    if(view.getButtonGroupPeridiocidade().getSelection() == view.getJrbIndefinido()){
+                    if(view.getJrbIndefinido().isSelected()){
                         periodicidade = "Indefinido";
-                    }else if (view.getButtonGroupPeridiocidade().getSelection() == view.getJrbAnual()){
+                    }else if (view.getJrbAnual().isSelected()){
                         periodicidade = "Anual";
-                    }else if (view.getButtonGroupPeridiocidade().getSelection() == view.getJrbMensal()){
+                    }else if (view.getJrbMensal().isSelected()){
                         periodicidade = "Mensal";
                     }else{
                         periodicidade = "Semanal";
@@ -132,6 +132,8 @@ public class CadastrarReceitaDespesaPresenter {
                     
                     IDAOReceitaDespesa dao = new ReceitaDespesaSQLite();
                     dao.cadastrarReceitaDespesa(receitaDespesa);
+                    
+                    view.dispose();
                 }
             }
         });

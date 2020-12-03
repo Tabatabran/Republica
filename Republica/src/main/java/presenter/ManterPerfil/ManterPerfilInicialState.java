@@ -7,6 +7,7 @@ package presenter.ManterPerfil;
 
 import dao.IDAOUsuario;
 import dao.UsuarioSQLite;
+import javax.swing.JOptionPane;
 import presenter.HistoricoMoradorPresenter;
 import com.pss.model.UsuarioLogado;
 
@@ -22,8 +23,9 @@ public class ManterPerfilInicialState extends ManterPerfilState{
     }
     @Override
     public void excluirConta(){
-        IDAOUsuario dao = new UsuarioSQLite();
+        IDAOUsuario dao = new UsuarioSQLite();         
         dao.excluirConta();
+        JOptionPane.showMessageDialog(null, "Pronto thamires!");        
     }
     @Override
     public  void exibirHistorico(){

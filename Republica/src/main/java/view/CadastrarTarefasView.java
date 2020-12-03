@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JList;
@@ -101,17 +102,14 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
 
         jLabel2.setText("Responsáveis pela tarefa:");
 
-        jlListaMoradorEsquerda.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Morador 1", "Morador 2", "Morador 3", "Morador 4", "Morador 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jlListaMoradorEsquerda.setModel(new javax.swing.DefaultListModel());
         jScrollPane3.setViewportView(jlListaMoradorEsquerda);
 
         jbBotaoDireita.setText("→");
 
         jbBotaoEsquerda.setText("←");
 
+        jlListaMoradorDireita.setModel(new javax.swing.DefaultListModel());
         jScrollPane2.setViewportView(jlListaMoradorDireita);
 
         jLabel3.setText("Data de agendamento:");

@@ -3,6 +3,7 @@ package presenter;
 
 import java.awt.event.ActionEvent;
 import presenter.ManterPerfil.ManterPerfilPresenter;
+import presenter.manterReceitaDespesa.ManterReceitaDespesaPresenter;
 import view.ManterMoradorView;
 import view.TelaPrincipalView;
 
@@ -23,6 +24,7 @@ public class TelaPrincipalPresenter {
         manterTarefas();
         manterMoradores();
         registrarConclusaoTarefas();
+        manterReceitaDespesa();
         view.setVisible(true);
     }
     
@@ -74,6 +76,15 @@ public class TelaPrincipalPresenter {
                 new RegistrarConfirmacaoTarefaPresenter();
             }
         });
-    }    
+    } 
+    
+    public void manterReceitaDespesa(){
+        this.view.getjMenuItemManterReceitaDespesa().addActionListener(new java.awt.event.ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManterReceitaDespesaPresenter();
+            }
+        });
+    } 
 
 }

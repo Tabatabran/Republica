@@ -22,4 +22,5 @@ public interface IDAOUsuario {
    public boolean adicionarRepulicaDoUsuario(String idRepublica);
    public boolean alterarPerfilUsuario();
    public void deletarRepublicaAtualDoUsuario(String nomeUsuario);
+   public String[] obterUsuariosNaRepublicaAtual(String nomeRepublica);
 }

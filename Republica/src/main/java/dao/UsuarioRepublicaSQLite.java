@@ -6,11 +6,14 @@
 package dao;
 
 import com.pss.model.HistoricoRepublica;
+import com.pss.model.Usuario;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,7 +24,7 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
     @Override
     public HistoricoRepublica obterRegistro(String nomeUsuario, String nomeRepublica) {
     HistoricoRepublica registro;
-         ConexaoSQLite conexao= new ConexaoSQLite();
+        ConexaoSQLite conexao= new ConexaoSQLite();
           
         boolean conectou=false;
         ResultSet resultSet = null;
@@ -77,13 +80,15 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
             conectou=conexao.conectar();
             String sqlInsert = "INSERT INTO usuario_republica(" +                            
                             "nome_usuario," +
-                            "nome_republica" +                       
-                            ") VALUES(?,?)"
+                            "nome_republica," +   
+                            "dataIngresso" +
+                            ") VALUES(?,?,?)"
                             + ";";
             
             PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);            
             preparedStmt.setString(1, nome_usuario);
             preparedStmt.setString(2, nome_republica);
+            preparedStmt.setString(3, dataIngresso.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                      
             int resultado = preparedStmt.executeUpdate();
             preparedStmt.close();
@@ -135,4 +140,6 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
                 conexao.desconectar();
         }
     }
+
+    
 }

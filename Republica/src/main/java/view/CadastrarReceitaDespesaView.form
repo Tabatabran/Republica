@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupTipo">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupPeridiocidade">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -165,11 +171,17 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbReceita">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupTipo"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Receita"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbDespesa">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupTipo"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Despesa"/>
           </Properties>
         </Component>
@@ -196,6 +208,9 @@
               <Format format="##/##/####" subtype="-1" type="5"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="CadastrarReceitaDespesaView_jftDataVencimento"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="jftDataCadastro">
           <Properties>
@@ -219,21 +234,33 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbAnual">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupPeridiocidade"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Anual"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbMensal">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupPeridiocidade"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Mensal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbSemanal">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupPeridiocidade"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Semanal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbIndefinido">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroupPeridiocidade"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Indefinido"/>
           </Properties>
         </Component>
@@ -318,14 +345,9 @@
                 <Component class="javax.swing.JList" name="jlListaMoradorEsquerda">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Morador 1"/>
-                        <StringItem index="1" value="Morador 2"/>
-                        <StringItem index="2" value="Morador 3"/>
-                        <StringItem index="3" value="Morador 4"/>
-                        <StringItem index="4" value="Morador 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import com.pss.model.UsuarioLogado;
 import com.pss.model.RepublicaUsuarioLogado;
 import com.pss.model.Republica;
-import java.time.format.DateTimeFormatter;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -365,5 +364,46 @@ public class UsuarioSQLite implements IDAOUsuario{
         }
     }
     
+    
+    @Override
+    public String[] obterUsuariosNaRepublicaAtual(String nomeRepublica) {
+        String[] nomesUsuarios = new String[30];
+        int i = 1;
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT nome FROM usuarios WHERE republica = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeRepublica);
+            resultSet= stmt.executeQuery();
+            
+            while(resultSet.next()){
+                nomesUsuarios[i] = resultSet.getString("nome");
+                i += 1;
+            }
+            
+            return nomesUsuarios;
+            
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("sql erro"); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
     
 }

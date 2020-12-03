@@ -90,24 +90,24 @@
             <Property name="text" type="java.lang.String" value="Lan&#xe7;amentos"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManterReceitaDespesa">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem13"/>
+                <Property name="text" type="java.lang.String" value="Manter receitas e despesas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFazerEstornoLancamento">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem14"/>
+                <Property name="text" type="java.lang.String" value="Fazer estorno de lan&#xe7;amentos"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConsultarMinhasReceitasDespesas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem15"/>
+                <Property name="text" type="java.lang.String" value="Consultar minhas receitas e despesas"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem16">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemRegistrarPagamentoReceitaDespesa">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem16"/>
+                <Property name="text" type="java.lang.String" value="Registrar pagamento de receita ou despesa"/>
               </Properties>
             </MenuItem>
           </SubComponents>

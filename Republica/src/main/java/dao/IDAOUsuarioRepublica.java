@@ -7,6 +7,7 @@ package dao;
 
 import com.pss.model.HistoricoRepublica;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *

@@ -6,6 +6,7 @@
 package com.pss.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -60,6 +61,18 @@ public class Tarefa {
         return dataTermino;
     }
     
+    // transforma o LocalDate em String
+    public String dataTerminoFormatada(){
+        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String dataFormatada = dataTermino.format(formatoData);
+        
+        return dataFormatada;
+    }
     
-    
+    public String dataAgendamentoFormatada(){
+        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String dataFormatada = dataAgendamento.format(formatoData);
+        
+        return dataFormatada;
+    }    
 }

@@ -5,11 +5,30 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author vitor
  */
 public class ConvidarMoradorView extends javax.swing.JFrame {
+
+    public JButton getjButtonConvidar() {
+        return jButtonConvidar;
+    }
+
+    public void setjButtonConvidar(JButton jButtonConvidar) {
+        this.jButtonConvidar = jButtonConvidar;
+    }
+
+    public JTextField getjTextFieldNomeConvidar() {
+        return jTextFieldNomeConvidar;
+    }
+
+    public void setjTextFieldNomeConvidar(JTextField jTextFieldNomeConvidar) {
+        this.jTextFieldNomeConvidar = jTextFieldNomeConvidar;
+    }
 
     /**
      * Creates new form ConvidarView
@@ -35,8 +54,8 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jTextFieldNomeConvidar = new javax.swing.JTextField();
+        jButtonConvidar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +107,7 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
 
         jLabel1.setText("Nome do Usuário");
 
-        jButton3.setText("Convidar");
+        jButtonConvidar.setText("Convidar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -98,9 +117,9 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                .addComponent(jTextFieldNomeConvidar, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton3)
+                .addComponent(jButtonConvidar)
                 .addGap(51, 51, 51))
         );
         jPanel2Layout.setVerticalGroup(
@@ -109,8 +128,8 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jTextFieldNomeConvidar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConvidar))
                 .addContainerGap(210, Short.MAX_VALUE))
         );
 
@@ -134,13 +153,14 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonConvidar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldNomeConvidar;
     // End of variables declaration//GEN-END:variables
+
 }

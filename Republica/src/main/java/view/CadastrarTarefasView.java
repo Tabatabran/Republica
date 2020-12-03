@@ -43,6 +43,14 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
         this.jfDataTermino = jfDataTermino;
     }
 
+    public JFormattedTextField getJfDataAgendamento() {
+        return jfDataAgendamento;
+    }
+
+    public void setJfDataAgendamento(JFormattedTextField jfDataAgendamento) {
+        this.jfDataAgendamento = jfDataAgendamento;
+    }
+    
     public JList<String> getJlListaMoradorDireita() {
         return jlListaMoradorDireita;
     }
@@ -59,22 +67,20 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
         this.jlListaMoradorEsquerda = jlListaMoradorEsquerda;
     }
 
-    public JTextField getJtCadastrarTarefa() {
-        return jtCadastrarTarefa;
+    public JTextField getJtDescricaoTarefa() {
+        return jtDescricaoTarefa;
     }
 
-    public void setJtCadastrarTarefa(JTextField jtCadastrarTarefa) {
-        this.jtCadastrarTarefa = jtCadastrarTarefa;
+    public void setJtDescricaoTarefa(JTextField jtDescricaoTarefa) {
+        this.jtDescricaoTarefa = jtDescricaoTarefa;
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jtCadastrarTarefa = new javax.swing.JTextField();
+        jtDescricaoTarefa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -133,7 +139,7 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtCadastrarTarefa)
+                    .addComponent(jtDescricaoTarefa)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -144,15 +150,13 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
                                     .addComponent(jbBotaoDireita, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jfDataAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jfDataAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(jfDataTermino)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(jfDataTermino))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(151, 151, 151)
@@ -165,7 +169,7 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtCadastrarTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtDescricaoTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,7 +186,7 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jfDataAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jfDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -226,6 +230,6 @@ public class CadastrarTarefasView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jfDataTermino;
     private javax.swing.JList<String> jlListaMoradorDireita;
     private javax.swing.JList<String> jlListaMoradorEsquerda;
-    private javax.swing.JTextField jtCadastrarTarefa;
+    private javax.swing.JTextField jtDescricaoTarefa;
     // End of variables declaration//GEN-END:variables
 }

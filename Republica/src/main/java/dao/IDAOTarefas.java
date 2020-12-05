@@ -14,7 +14,9 @@ import java.util.ArrayList;
  * @author Thiago
  */
 public interface IDAOTarefas {
-    public ArrayList<Tarefa> buscarTarefasDoUsuario();
-    public ArrayList<Usuario> buscarResponsaveisDaTarefa();
+    public ArrayList<Tarefa> buscarTarefasDoUsuario(Usuario usuario);
+    public ArrayList<String> buscarResponsaveisDaTarefa(int idTarefas);
     public void novaTarefa(Tarefa tarefa);
+    public ArrayList<Tarefa> buscarTarefasPorDescricao(String descricao);
+    public void excluirTarefa();
 }

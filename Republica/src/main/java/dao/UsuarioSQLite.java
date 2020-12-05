@@ -427,5 +427,96 @@ public class UsuarioSQLite implements IDAOUsuario{
             }
         }
     }
+
+    @Override
+    public ArrayList<Usuario> buscarUsuariosNaRepublicaAtual(String nomeRepublica) {
+         //String[] nomesUsuarios = new String[30];
+        ArrayList<Usuario> nomeUsuarios= new ArrayList<>();
+        int i = 1;
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM usuarios WHERE republica = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeRepublica);
+            resultSet= stmt.executeQuery();
+            
+            while(resultSet.next()){
+                Usuario usuario= new Usuario();
+                
+                usuario.setLogin(resultSet.getString("nome_usuario"));
+                usuario.setNome(resultSet.getString("nome"));
+                nomeUsuarios.add(usuario);
+            }
+            
+            //return nomesUsuarios;
+            return nomeUsuarios;
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("sql erro"); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
+
+    @Override
+    public ArrayList<Usuario> buscarUsuariosNaRepublicaAtualPorNome(String nomeRepublica, String nome) {
+        
+        ArrayList<Usuario> nomeUsuarios= new ArrayList<>();
+        
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM usuarios WHERE republica = ? AND nome = ? ;";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nomeRepublica);
+            stmt.setString(2, nome);
+            resultSet= stmt.executeQuery();
+            
+            while(resultSet.next()){
+                Usuario usuario= new Usuario();
+                usuario.setLogin(resultSet.getString("nome_usuario"));
+                usuario.setNome(resultSet.getString("nome"));
+                nomeUsuarios.add(usuario);
+            }
+            
+            //return nomesUsuarios;
+            return nomeUsuarios;
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("sql erro"); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
+    
     
 }

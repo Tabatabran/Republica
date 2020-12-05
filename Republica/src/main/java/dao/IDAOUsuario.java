@@ -24,4 +24,7 @@ public interface IDAOUsuario {
    public boolean alterarPerfilUsuario();
    public void deletarRepublicaAtualDoUsuario(String nomeUsuario);
    public ArrayList<String> obterUsuariosNaRepublicaAtual(String nomeRepublica);
+   public ArrayList<Usuario> buscarUsuariosNaRepublicaAtual(String nomeRepublica);
+   public ArrayList<Usuario> buscarUsuariosNaRepublicaAtualPorNome(String nomeRepublica, String nome);
+   
 }

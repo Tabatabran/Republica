@@ -21,8 +21,8 @@ public class Tarefa {
     protected LocalDate dataTermino;
     protected boolean finalizada; //se true a tarefa é marcada como concluída
 
-    public Tarefa(int codigo, LocalDate dataAgendamento, ArrayList<Usuario> responsaveis, String descricao, LocalDate dataTermino) {
-        this.codigo = codigo;
+    public Tarefa( LocalDate dataAgendamento, ArrayList<Usuario> responsaveis, String descricao, LocalDate dataTermino) {
+        //this.codigo = codigo;
         this.dataAgendamento = dataAgendamento;
         this.responsaveis = responsaveis;
         this.descricao = descricao;

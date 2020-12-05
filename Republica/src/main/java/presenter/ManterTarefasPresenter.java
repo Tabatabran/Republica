@@ -91,10 +91,20 @@ public class ManterTarefasPresenter {
         this.view.getJbEditar().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {               
-                Tarefa tarefa;               
+                    String nomes=(String)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(), 1);
+                    String[] responsaveisString;
+                    responsaveisString=nomes.split(" ");
+                    ArrayList<Usuario> usuarios=new ArrayList<>();
+                    for(int i=0;i<responsaveisString.length;i++){
+                        Usuario usuario=new Usuario();
+                        usuario.setNome(responsaveisString[i]);
+                        usuarios.add(usuario);
+                    }
+                    
+                    Tarefa tarefa;               
                     tarefa = new Tarefa((LocalDate)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),2), 
                             //view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),1), 
-                             null,
+                             usuarios,
                             (String)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),0), 
                             (LocalDate)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),3));
                     

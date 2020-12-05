@@ -36,24 +36,16 @@ public class CadastrarTarefasPresenter {
         this.view = new CadastrarTarefasView();        
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
-        preencherMoradoresRepublica();
+      
         preencherTarefa(tarefa);
+        preencherMoradoresRepublica();
         confirmarCadastroTarefa();
         configuraBotaoDireita();
         configuraBotaoEsquerda();
         this.view.setVisible(true);
     }
     
-//     TESTANDO MÉTODO        
-//        public void setarListaMoradorEsquerda(){
-//            ArrayList<Usuario> usuarios;
-//            IDAOUsuario dao = new UsuarioSQLite();
-//            
-//            usuarios = dao.obterUsuarios();
-//            
-//            for(int i=0; i<usuarios.size(); i++ ){
-//            }
-//        }
+
         public void preencherTarefa(Tarefa tarefa){
             LocalDate data=tarefa.getDataAgendamento();
             DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -62,6 +54,11 @@ public class CadastrarTarefasPresenter {
             data=tarefa.getDataTermino();
             view.getJfDataTermino().setText(data.format(formatter).toString());
             view.getJtDescricaoTarefa().setText(tarefa.getDescricao());
+             DefaultListModel model;
+            model=(DefaultListModel) view.getJlListaMoradorDireita().getModel();
+            for(Usuario usuario:tarefa.getResponsaveis()){
+                model.addElement(usuario.getNome());
+            }
         }
         public void confirmarCadastroTarefa() {
             this.view.getJbBotaoConfirmar().addActionListener(new java.awt.event.ActionListener() {
@@ -86,22 +83,17 @@ public class CadastrarTarefasPresenter {
                         }
                         
                     }
-                    //até auqi tudo bem
-                   //view.getJftDataCadastro().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                    
                     tarefa= new Tarefa(LocalDate.parse(view.getJfDataAgendamento().getText(),DateTimeFormatter.ofPattern("dd/MM/yyyy" )), responsaveisTarefa,
                             view.getJtDescricaoTarefa().getText(), LocalDate.parse(view.getJfDataTermino().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy" )));
                    
                     
-                    //  *** deixando o código pronto pra depois colocar os comandos certinhos do banco ***
+                   
                     IDAOTarefas dao = new TarefasSQLite();
-                    //this.tarefa = dao.novaTarefa(tarefa);
+                    
                     dao.novaTarefa(tarefa);
                     
-                    // DESCOBRIR COMO PEGA ESSA LIST DO MORADOR E SETAR NO OUTRO LADO
-                    view.getJlListaMoradorEsquerda();
-                    view.getJlListaMoradorDireita();
-                    //view.getJfDataAgendamento().setText(tarefa.dataAgendamentoFormatada());      
-                    //view.getJfDataTermino().setText(tarefa.dataTerminoFormatada());
+                    
                 }
             });
         }
@@ -155,11 +147,17 @@ public class CadastrarTarefasPresenter {
             });
         }
         public void preencherMoradoresRepublica(){
+            ArrayList<String> aux=new ArrayList<>();
+            for(int i=0;i<view.getJlListaMoradorDireita().getModel().getSize();i++){
+                aux.add(view.getJlListaMoradorDireita().getModel().getElementAt(i));
+            }
             DefaultListModel model;
             model=(DefaultListModel) view.getJlListaMoradorEsquerda().getModel();
             IDAOUsuario dao = new UsuarioSQLite();
             ArrayList<String> moradores=dao.obterUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
-            for(String s:moradores ){
+            for(String s:moradores ){             
+                
+               if(!aux.contains(s))
                 model.addElement(s);
             }
             view.getJlListaMoradorEsquerda().revalidate();

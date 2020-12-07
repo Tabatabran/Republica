@@ -56,7 +56,7 @@ public class ManterTarefasPresenter {
                                         responsaveisCompilado = responsaveisCompilado+s+" ";
                                     }
                                     model.addRow(new Object[]{
-                                    tarefa.getDescricao(),
+                                    tarefa.getDescricao()+"-"+tarefa.getCodigo(),
                                     responsaveisCompilado,
                                     tarefa.getDataAgendamento(),
                                     tarefa.getDataTermino(),
@@ -107,7 +107,7 @@ public class ManterTarefasPresenter {
                              usuarios,
                             (String)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),0), 
                             (LocalDate)view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(),3));
-                    
+                    tarefa.setCodigo(0);
                             new CadastrarTarefasPresenter(tarefa);
               
             }

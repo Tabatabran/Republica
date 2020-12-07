@@ -180,8 +180,35 @@ public class TarefasSQLite implements IDAOTarefas{
     }
 
     @Override
-    public void excluirTarefa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void excluirTarefa(int idTarefa) {
+       ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        //ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "DELETE FROM tarefas WHERE id = ?;";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setInt(1,idTarefa);            
+            stmt.executeUpdate();
+        }catch(SQLException e){
+            System.err.println("SQL buscar usuarioLogado"+e.fillInStackTrace());
+            
+        }finally{
+            try{
+//                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
     }
 
     @Override

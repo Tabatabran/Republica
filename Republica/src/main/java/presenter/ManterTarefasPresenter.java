@@ -117,7 +117,10 @@ public class ManterTarefasPresenter {
         this.view.getJbExcluir().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               
+               IDAOTarefas dao = new TarefasSQLite();
+                String row1= (String) view.getJtTabelaManterTarefa().getValueAt(view.getJtTabelaManterTarefa().getSelectedRow(), 0);
+                String[]  splitted = row1.split("-");
+                dao.excluirTarefa(Integer.parseInt(splitted[1]));
             }
         });
     }

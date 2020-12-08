@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author hiago
  */
 public class ConexaoSQLite {
-    private Connection conexao;
+    public Connection conexao;
     
     public boolean conectar(){
         try{

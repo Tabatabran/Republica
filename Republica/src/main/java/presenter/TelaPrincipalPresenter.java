@@ -25,7 +25,28 @@ public class TelaPrincipalPresenter {
         manterMoradores();
         registrarConclusaoTarefas();
         manterReceitaDespesa();
+        aceitarConvite();
+        buscarVagas();
+        convidarAceitarConviter();
         view.setVisible(true);
+    }
+    
+    public void buscarVagas(){
+        this.view.getjMenuItemBuscarVagas().addActionListener((e) -> {
+            new BuscarVagasPresenter();
+        });
+    }
+    
+    public void convidarAceitarConviter(){
+        this.view.getjMenuItemConvidarAceitarConvites().addActionListener((e) -> {
+            new ConvidarMoradorPresenter();
+        });
+    }
+    
+    public void aceitarConvite(){
+        this.view.getjMenuItemAceitarConvite().addActionListener((e) -> {
+            new AceitarConvitesPresenter();
+        });
     }
     
     public void manterMoradores(){

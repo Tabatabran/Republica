@@ -73,7 +73,7 @@ public class UsuarioSQLite implements IDAOUsuario{
             stmt = conexao.criarPreparedStatement(query);
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
-            resultSet= stmt.executeQuery();
+            resultSet = stmt.executeQuery();
             //login, senha, nome, apelido, cpf, redeSocial, telefone1, telefone2,  telefone3
             if(resultSet.next()){
                 UsuarioLogado.getInstancia(resultSet.getString("nome_usuario"),
@@ -112,6 +112,56 @@ public class UsuarioSQLite implements IDAOUsuario{
             }
         }
     
+    }
+    
+    @Override
+    public Usuario obterUsuario(String nome_usuario) {
+        Usuario usuario = new Usuario();
+         ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        //ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM usuarios WHERE nome_usuario = ?";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1, nome_usuario);
+            resultSet= stmt.executeQuery();
+            if(resultSet.next()){
+                usuario.setNome( resultSet.getString("nome_usuario"));
+                usuario.setApelido( resultSet.getString("apelido"));
+                usuario.setCPF( resultSet.getString("cpf"));
+                usuario.setLinkRedeSocial( resultSet.getString("rede_social"));
+                usuario.setTelefone1( resultSet.getString("telefone1"));
+                usuario.setTelefone2( resultSet.getString("telefone2"));
+                usuario.setTelefone3( resultSet.getString("telefone3"));
+                usuario.setRepublicaAtual(resultSet.getString("republica"));
+                return usuario;
+            }
+            else{
+                return null;
+            }
+                
+          
+           
+        }catch(SQLException e){
+            System.err.println("SQL buscar funcionario");
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("dao.FuncionarioDAO.buscarFuncionario() reulset..."); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
     }
 
     @Override
@@ -517,6 +567,4 @@ public class UsuarioSQLite implements IDAOUsuario{
             }
         }
     }
-    
-    
 }

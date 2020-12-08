@@ -70,7 +70,7 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
     @Override
     public ArrayList<HistoricoRepublica> obterRegistro(String nomeUsuario) {
         ArrayList<HistoricoRepublica> registros = new ArrayList<HistoricoRepublica>();
-         ConexaoSQLite conexao= new ConexaoSQLite();
+        ConexaoSQLite conexao= new ConexaoSQLite();
           
         boolean conectou=false;
         ResultSet resultSet = null;
@@ -183,5 +183,56 @@ public class UsuarioRepublicaSQLite implements IDAOUsuarioRepublica {
         }
     }
 
-    
+    @Override
+    public void updateRegistro(String nome_usuario, String nome_republica, LocalDate dataSaida){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+              boolean conectou = false;        
+        try{
+            conectou=conexao.conectar();
+            String sqlInsert = "UPDATE usuario_republica " +                            
+                            "SET dataSaida = ? " + 
+                            "WHERE nome_usuario = ? AND nome_republica = ?;";
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);            
+            preparedStmt.setString(1, dataSaida.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            preparedStmt.setString(2, nome_usuario);
+            preparedStmt.setString(3, nome_republica);
+                     
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+    }
+
+    @Override
+    public void updateRegistro(String nome_usuario, String nome_republica, Double rateio){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+              boolean conectou = false;        
+        try{
+            conectou=conexao.conectar();
+            String sqlInsert = "UPDATE usuario_republica " +                            
+                            "SET rateio = ? " + 
+                            "WHERE nome_usuario = ? AND nome_republica = ?;";
+            
+            PreparedStatement preparedStmt = conexao.criarPreparedStatement(sqlInsert);            
+            preparedStmt.setDouble(1, rateio);
+            preparedStmt.setString(2, nome_usuario);
+            preparedStmt.setString(3, nome_republica);
+                     
+            preparedStmt.executeUpdate();
+            preparedStmt.close();
+        }            
+        catch(SQLException e){
+            System.err.println("sql deu ruim");
+        }finally{
+            if(conectou)
+                conexao.desconectar();
+        }
+    }
 }
+

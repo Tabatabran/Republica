@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 public class CadastrarTarefasPresenter {
@@ -132,7 +133,7 @@ public class CadastrarTarefasPresenter {
                     
                     dao.novaTarefa(tarefa);
                     
-                    
+                    view.dispose();
                 }
             });
         }

@@ -16,6 +16,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -159,9 +160,9 @@ public class TarefasSQLite implements IDAOTarefas{
                      
             
             if(resultado == 1 ){
-                //System.out.println("deu bom a inserção");
+                JOptionPane.showMessageDialog(null, "Tafera registrada com sucesso!");
             }else{
-                System.out.println("pessoa nao inserida");
+                System.out.println("tarefa nao inserida");
             }
            
             preparedStmt.close();

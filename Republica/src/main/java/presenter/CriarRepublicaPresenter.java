@@ -31,7 +31,7 @@ public class CriarRepublicaPresenter {
     private CriarRepublicaView view;
 
     public CriarRepublicaPresenter() {
-        if (!UsuarioLogado.getInstancia().getRepublicaAtual().equals(null)) {
+        if (UsuarioLogado.getInstancia().getRepublicaAtual() != null) {
             JOptionPane.showMessageDialog(null, "Vc já está em uma república!");
         } else {
             this.view = new CriarRepublicaView();

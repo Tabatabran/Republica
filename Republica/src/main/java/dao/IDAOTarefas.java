@@ -18,5 +18,6 @@ public interface IDAOTarefas {
     public ArrayList<String> buscarResponsaveisDaTarefa(int idTarefas);
     public void novaTarefa(Tarefa tarefa);
     public ArrayList<Tarefa> buscarTarefasPorDescricao(String descricao);
-    public void excluirTarefa();
+    public void excluirTarefa(int idTarefa);
+    public void editarTarefa(Tarefa tarefa);
 }

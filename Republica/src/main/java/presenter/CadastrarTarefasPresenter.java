@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 public class CadastrarTarefasPresenter {
@@ -37,29 +38,68 @@ public class CadastrarTarefasPresenter {
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
       
-        preencherTarefa(tarefa);
+        String codigo=preencherTarefa(tarefa);
         preencherMoradoresRepublica();
-        confirmarCadastroTarefa();
+        confirmarEdicaoTarefa(codigo);
         configuraBotaoDireita();
         configuraBotaoEsquerda();
         this.view.setVisible(true);
     }
     
-
-        public void preencherTarefa(Tarefa tarefa){
+        public void confirmarEdicaoTarefa(String codigo){
+              this.view.getJbBotaoConfirmar().addActionListener(new java.awt.event.ActionListener() {
+                @Override
+                
+                public void actionPerformed(ActionEvent e) {
+   
+                    DefaultListModel model;
+                    model= (DefaultListModel) view.getJlListaMoradorDireita().getModel();
+                    //pegando os moradores da republica o nome de usuarios deles será usado
+                    ArrayList<Usuario> moradoresDaRepublica = new ArrayList<>();
+                    IDAOUsuario udao = new UsuarioSQLite();
+                    moradoresDaRepublica=udao.buscarUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
+                    
+                    ArrayList<Usuario> responsaveisTarefa = new ArrayList<>();
+                    for(int i=0;i<view.getJlListaMoradorDireita().getModel().getSize();i++){
+                        for(Usuario u:moradoresDaRepublica){
+                            if(u.getNome()!=null){
+                                if(u.getNome().equals((String)model.getElementAt(i)))                               
+                                responsaveisTarefa.add(u);
+                            }
+                        }
+                        
+                    }
+                    
+                    tarefa= new Tarefa(LocalDate.parse(view.getJfDataAgendamento().getText(),DateTimeFormatter.ofPattern("dd/MM/yyyy" )), responsaveisTarefa,
+                            view.getJtDescricaoTarefa().getText(), LocalDate.parse(view.getJfDataTermino().getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy" )));
+                    tarefa.setCodigo(Integer.parseInt( codigo));
+                    
+                   
+                    IDAOTarefas dao = new TarefasSQLite();
+                    
+                    dao.editarTarefa(tarefa);
+                    
+                    
+                }
+            });
+        }
+        public String preencherTarefa(Tarefa tarefa){
             LocalDate data=tarefa.getDataAgendamento();
-            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");            
             
             view.getJfDataAgendamento().setText(data.format(formatter).toString());
             data=tarefa.getDataTermino();
             view.getJfDataTermino().setText(data.format(formatter).toString());
-            view.getJtDescricaoTarefa().setText(tarefa.getDescricao());
-             DefaultListModel model;
+            String[] splited=tarefa.getDescricao().split("-");
+            view.getJtDescricaoTarefa().setText(splited[0]);
+            DefaultListModel model;
             model=(DefaultListModel) view.getJlListaMoradorDireita().getModel();
             for(Usuario usuario:tarefa.getResponsaveis()){
                 model.addElement(usuario.getNome());
             }
+            return splited[1];
         }
+       
         public void confirmarCadastroTarefa() {
             this.view.getJbBotaoConfirmar().addActionListener(new java.awt.event.ActionListener() {
                 @Override
@@ -93,7 +133,7 @@ public class CadastrarTarefasPresenter {
                     
                     dao.novaTarefa(tarefa);
                     
-                    
+                    view.dispose();
                 }
             });
         }

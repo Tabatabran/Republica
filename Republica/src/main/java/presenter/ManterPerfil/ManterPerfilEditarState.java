@@ -18,6 +18,7 @@ public class ManterPerfilEditarState extends ManterPerfilState{
     public ManterPerfilEditarState(ManterPerfilPresenter presenter) {
         super(presenter);
         presenter.setViewEditarState();
+        
     }
     @Override
     public void excluirConta(){
@@ -29,8 +30,14 @@ public class ManterPerfilEditarState extends ManterPerfilState{
     }
     @Override
     public void editar(){
-
-        UsuarioLogado.getInstancia().setNome(this.presenter.view.getjTextFieldNome().getText());
+        if( this.presenter.view.getjTextFieldNome().getVerifyInputWhenFocusTarget()){
+             UsuarioLogado.getInstancia().setNome(this.presenter.view.getjTextFieldNome().getText());
+             
+        }else{
+            this.presenter.view.getjTextFieldNome().invalidate();
+        }
+       
+       
         UsuarioLogado.getInstancia().setApelido(this.presenter.view.getjTextFieldApelido().getText());
         UsuarioLogado.getInstancia().setLinkRedeSocial(this.presenter.view.getjTextFieldRedeSocial().getText());
         UsuarioLogado.getInstancia().setTelefone1(this.presenter.view.getjTextFieldTelefone1().getText());

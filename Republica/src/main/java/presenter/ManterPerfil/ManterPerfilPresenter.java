@@ -8,7 +8,11 @@ package presenter.ManterPerfil;
 import com.pss.model.Usuario;
 import com.pss.model.UsuarioLogado;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import utility.VerificaCampoVazio;
+import utility.VerificaCampoVazioLetra;
 import view.ManterPerfilView;
 
 /**
@@ -22,7 +26,9 @@ public class ManterPerfilPresenter {
     public ManterPerfilPresenter() {
         
         this.view = new ManterPerfilView();
+        this.view.getjButtonEditar().requestFocus();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        configurarValidacoes();
         excluirConta();
         exibirHistorico();
         editar();
@@ -30,6 +36,53 @@ public class ManterPerfilPresenter {
         this.state= new ManterPerfilInicialState(this);
         this.view.setVisible(true);
         
+    }
+    public void setInputVerifierVazioLetra(JTextField texfield){
+        texfield.setInputVerifier(new VerificaCampoVazioLetra());
+    }
+    public void setInputVerifierVazio(JTextField texfield){
+        texfield.setInputVerifier(new VerificaCampoVazio());
+    }
+    public void configurarValidacoes(){
+        
+        this.view.getjTextFieldNome().addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazioLetra(view.getjTextFieldNome());
+                System.out.println("ola mundo");
+            }
+        });
+        
+        this.view.getjTextFieldApelido().addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazio(view.getjTextFieldApelido());
+            }
+        });
+        this.view.getjTextFieldRedeSocial().addFocusListener(new java.awt.event.FocusAdapter() {
+           @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazio(view.getjTextFieldRedeSocial());
+            }
+        });
+        this.view.getjTextFieldTelefone1().addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazio(view.getjTextFieldTelefone1());
+            }
+        });
+        this.view.getjTextFieldTelefone2().addFocusListener(new java.awt.event.FocusAdapter() {
+           @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazio(view.getjTextFieldTelefone2());
+            }
+        });
+        this.view.getjTextFieldTelefone3().addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e){
+                setInputVerifierVazio(view.getjTextFieldTelefone3());
+            }
+        });
     }
     public void changeState(ManterPerfilState state){
         this.state=state;
@@ -62,6 +115,7 @@ public class ManterPerfilPresenter {
         });
     }
     public void setViewEditarState(){
+        this.view.getjTextFieldNome().requestFocus();
         this.view.getjButtonExcluir().setEnabled(false);
         this.view.getjButtonExcluir().setVisible(false);
         

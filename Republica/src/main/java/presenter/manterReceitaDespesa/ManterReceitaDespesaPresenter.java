@@ -7,7 +7,7 @@ public class ManterReceitaDespesaPresenter {
     private ManterReceitasDespesasView view;
 
     public ManterReceitaDespesaPresenter() {
-        this.view = new ManterReceitasDespesasView();
+        this.view = new ManterReceitasDespesasView(); 
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.view.setLocationRelativeTo(null);
         buscarReceitaDespesa();
@@ -15,6 +15,7 @@ public class ManterReceitaDespesaPresenter {
         editarReceitaDespesa();
         realizarEstorno();
         verInformacoes();
+        configuraView();
         this.view.setVisible(true);
     }
     
@@ -30,7 +31,7 @@ public class ManterReceitaDespesaPresenter {
         this.view.getJbCadastrarReceitaDespesa().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               new CadastrarReceitaDespesaPresenter();
+                new CadastrarReceitaDespesaPresenter(); 
             }
         });
     }
@@ -38,6 +39,8 @@ public class ManterReceitaDespesaPresenter {
         this.view.getJbEditar().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               CadastrarReceitaDespesaPresenter presenter = new CadastrarReceitaDespesaPresenter();
+               presenter.setState(new CadastrarReceitaDespesaEditarState(presenter));
                
             }
         });
@@ -54,8 +57,13 @@ public class ManterReceitaDespesaPresenter {
         this.view.getJbVerInformacoes().addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               
+                CadastrarReceitaDespesaPresenter presenter = new CadastrarReceitaDespesaPresenter();
+                presenter.setState(new CadastrarReceitaDespesaVisualizarState(presenter));
             }
         });
+    }
+    
+    public void configuraView(){
+        
     }
 }

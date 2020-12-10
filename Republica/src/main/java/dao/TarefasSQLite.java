@@ -26,7 +26,7 @@ public class TarefasSQLite implements IDAOTarefas{
 
     @Override
     public ArrayList<Tarefa> buscarTarefasDoUsuario(Usuario usuario) {
-         ConexaoSQLite conexao= new ConexaoSQLite();
+        ConexaoSQLite conexao= new ConexaoSQLite();
           
         boolean conectou=false;
         ResultSet resultSet = null;

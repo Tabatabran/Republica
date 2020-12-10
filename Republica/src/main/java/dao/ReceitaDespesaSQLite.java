@@ -120,5 +120,101 @@ public class ReceitaDespesaSQLite implements IDAOReceitaDespesa {
             }
         }
     }
+    
+    public ArrayList<ReceitaDespesa> buscarReceitasDespesas(String nomeRepublica){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT * FROM receitas_despesas "
+                    + "WHERE republica = ?;";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setString(1,nomeRepublica);
+            
+            
+            resultSet= stmt.executeQuery();
+            ArrayList<ReceitaDespesa> recitasDespesas = new ArrayList<>();
+            
+            while(resultSet.next()){       
+                
+                ReceitaDespesa receitaDespesa = new ReceitaDespesa(resultSet.getString("tipo"),
+                    resultSet.getString("descricao"),
+                    LocalDate.parse(resultSet.getString("dataCadastro"), DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                    resultSet.getDouble("valor"),
+                    resultSet.getString("periodicidade"),
+                    buscarMoradoresResponsaveisPorReceitaDespesa(resultSet.getInt("id_receitas")));
+                
+                receitaDespesa.setDataVencimento(LocalDate.parse(resultSet.getString("dataVencimento"), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                receitaDespesa.setValorParcela(resultSet.getDouble("valorParcela"));
+                receitaDespesa.setCodigo(resultSet.getInt("id_receitas"));
+            }
+                return recitasDespesas;
+          
+           
+        }catch(SQLException e){
+            System.err.println("SQL " + e.fillInStackTrace());
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("SQL " + e.fillInStackTrace()); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                System.out.println("fechou a conexao");
+            }
+        }
+    }
+    
+    public ArrayList<String> buscarMoradoresResponsaveisPorReceitaDespesa(int idReceitaDespesa){
+        ConexaoSQLite conexao= new ConexaoSQLite();
+          
+        boolean conectou=false;
+        ResultSet resultSet = null;
+        PreparedStatement stmt = null;
+        
+        try{
+            conectou=conexao.conectar();
+            
+            String query = "SELECT nome_usuario FROM receitas_despesas_usuarios_participantes "
+                    + "WHERE id_receitas = ?;";
+            stmt = conexao.criarPreparedStatement(query);
+            stmt.setInt(1,idReceitaDespesa);
+            
+            
+            resultSet= stmt.executeQuery();
+            ArrayList<String> usuariosParticipantes = new ArrayList<>();
+            
+            while(resultSet.next()){
+                
+                usuariosParticipantes.add(resultSet.getString("nome_usuario"));
+ 
+            }
+                return usuariosParticipantes;
+          
+           
+        }catch(SQLException e){
+            System.err.println("SQL " + e .fillInStackTrace());
+            return null;
+        }finally{
+            try{
+                resultSet.close();
+                stmt.close();
+            }catch(SQLException e){
+                System.out.println("sql falha " + e.fillInStackTrace()); 
+            }
+            if(conectou){
+                conexao.desconectar();
+                //System.out.println("fechou a conexao");
+            }
+        }
+    }
 
 }

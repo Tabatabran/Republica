@@ -7,6 +7,7 @@ package dao;
 
 import com.pss.model.Republica;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public interface IDAORepublica {
    public void addRepublica(Republica republica);
-   public ArrayList<Republica> obterRepublicas();
+   public ArrayList<Map<String, String>> obterRepublicas();
    public Republica consultarRepublica(String nomeRepublica);
    public void updateRepublica(Republica republica, String nomeAntigo);
    public void excluirRepublica(String nome);

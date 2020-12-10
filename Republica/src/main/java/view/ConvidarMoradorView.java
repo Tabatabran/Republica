@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -18,8 +19,32 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
         return jButtonConvidar;
     }
 
+    public JButton getjButtonAceitar() {
+        return jButtonAceitar;
+    }
+
+    public void setjButtonAceitar(JButton jButtonAceitar) {
+        this.jButtonAceitar = jButtonAceitar;
+    }
+
+    public JButton getjButtonRecusar() {
+        return jButtonRecusar;
+    }
+
+    public void setjButtonRecusar(JButton jButtonRecusar) {
+        this.jButtonRecusar = jButtonRecusar;
+    }
+
     public void setjButtonConvidar(JButton jButtonConvidar) {
         this.jButtonConvidar = jButtonConvidar;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
     }
 
     public JTextField getjTextFieldNomeConvidar() {
@@ -50,8 +75,8 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonRecusar = new javax.swing.JButton();
+        jButtonAceitar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldNomeConvidar = new javax.swing.JTextField();
@@ -72,9 +97,9 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Recusar");
+        jButtonRecusar.setText("Recusar");
 
-        jButton2.setText("Aceita Solicitação");
+        jButtonAceitar.setText("Aceita Solicitação");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,9 +111,9 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonRecusar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jButtonAceitar)
                 .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,8 +123,8 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonRecusar)
+                    .addComponent(jButtonAceitar))
                 .addGap(23, 23, 23))
         );
 
@@ -151,9 +176,9 @@ public class ConvidarMoradorView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAceitar;
     private javax.swing.JButton jButtonConvidar;
+    private javax.swing.JButton jButtonRecusar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

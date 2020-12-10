@@ -32,7 +32,7 @@ public class HistoricoMoradorPresenter {
     
     public void exibirHistorico(){
         IDAOUsuarioRepublica dao = new UsuarioRepublicaSQLite();
-        ArrayList<HistoricoRepublica> historico = dao.obterRegistro(UsuarioLogado.getInstancia().getLogin());
+        ArrayList<HistoricoRepublica> historico = dao.obterRegistro(nome_usuario);
         
         DefaultTableModel model = (DefaultTableModel) this.view.getjTableHistorico().getModel();
         model.setNumRows(0);

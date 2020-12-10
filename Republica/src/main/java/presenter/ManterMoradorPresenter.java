@@ -11,6 +11,8 @@ import dao.UsuarioSQLite;
 import dao.IDAORepublica;
 import dao.RepublicaSQLite;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import presenter.HistoricoMoradorPresenter;
 
 
 public class ManterMoradorPresenter {
@@ -21,15 +23,46 @@ public class ManterMoradorPresenter {
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         prencherTabelas();
         removerDaRepublica();
-        this.convidar();
+        verHistorico();
+        convidar();
+        editar();
         this.view.setVisible(true);
+    }
+    
+    public void editar(){
+        this.view.getjButtonEditar().addActionListener((e) -> {
+            String morador;
+            int linha = this.view.getjTableMorador().getSelectedRows()[0];
+            if(linha != -1){
+                String nome_morador = (String) this.view.getjTableMorador().getValueAt(linha, 0);
+                new EditarMorador(nome_morador);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Nunhum morador selecionado");
+            }
+        });
+    }
+    
+    public void verHistorico(){
+        this.view.getjButtonHistorico().addActionListener(((e) -> {
+            if(this.view.getjTableMorador().getSelectedRows().length > 0){
+                int linha = this.view.getjTableMorador().getSelectedRows()[0];
+                String nome_morador = (String) this.view.getjTableMorador().getValueAt(linha, 0);    
+                new HistoricoMoradorPresenter(nome_morador);
+            }
+        }));
     }
     
     public void removerDaRepublica(){
         this.view.getjButtonRemover().addActionListener((ActionEvent e) -> {
             if(this.view.getjTableMorador().getSelectedRows().length > 0){
                 int linha = this.view.getjTableMorador().getSelectedRows()[0];
-                String nome_morador = (String) this.view.getjTableMorador().getValueAt(linha, 0);    
+                String nome_morador = (String) this.view.getjTableMorador().getValueAt(linha, 0);
+                // "remover" a linha do usuario removido
+                for(int i = 0; i < 3; i++){
+                    this.view.getjTableMorador().setValueAt("", linha, i);
+                }
+                JOptionPane.showMessageDialog(null, "Morador removido");
                 IDAOUsuario dao = new UsuarioSQLite();
                 dao.deletarRepublicaAtualDoUsuario(nome_morador);
             }

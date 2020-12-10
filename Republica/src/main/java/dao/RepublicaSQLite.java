@@ -7,13 +7,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author tabat
  */
-public class RepublicaSQLite implements IDAORepublica {
+public class RepublicaSQLite extends QuerySQLite implements IDAORepublica {
 
     @Override
     public void addRepublica(Republica republica) {
@@ -71,8 +72,12 @@ public class RepublicaSQLite implements IDAORepublica {
     }
 
     @Override
-    public ArrayList<Republica> obterRepublicas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Map<String, String>> obterRepublicas() {
+        ArrayList<Map<String, String>> republicas;
+        
+        republicas = this.makeQueryWReturn("SELECT * FROM republica;", "nome", "despesasMediasPorMorador", "vagasDisponiveis", "totalDeVagas");
+        
+        return republicas;
     }
 
     @Override

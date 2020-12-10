@@ -18,6 +18,7 @@ public interface IDAOUsuario {
    public boolean consultarLogin(String usuario, String senha);
    public Usuario obterUsuario(Usuario usuario);
    public Usuario obterUsuario(String nome);
+   public String consultarRepublicaDoUsuario(String usuario);
    public ArrayList<Usuario> consultarUsuariosPorRepublica(String nome_republica);
    public boolean excluirConta();
    public boolean adicionarRepulicaDoUsuario(String idRepublica);

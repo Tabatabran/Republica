@@ -18,7 +18,7 @@ import com.pss.model.Republica;
  *
  * @author Thiago
  */
-public class UsuarioSQLite implements IDAOUsuario{
+public class UsuarioSQLite extends QuerySQLite implements IDAOUsuario{
 
     @Override
     public void addUsuario(String pNome, String pSenha) {
@@ -566,5 +566,10 @@ public class UsuarioSQLite implements IDAOUsuario{
                 //System.out.println("fechou a conexao");
             }
         }
+    }
+
+    @Override
+    public String consultarRepublicaDoUsuario(String usuario) {
+        return makeQueryWReturn(String.format("SELECT republica FROM usuarios WHERE nome_usuario = \"%s\"", usuario), "republica").get(0).get("republica");
     }
 }

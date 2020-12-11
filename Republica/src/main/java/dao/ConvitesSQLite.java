@@ -76,6 +76,9 @@ public class ConvitesSQLite extends QuerySQLite implements IDAOConvites  {
         // inserir o convidante na republica
         dao.adicionarRepulicaDoUsuario(morador, republica);
         this.removerConvite(morador, republica, false);
+        // decrementar numero de vagas
+        IDAORepublica daoRepublica = new RepublicaSQLite();
+        daoRepublica.decrementarVagasDisponiveis(republica);
     }
 
     /**

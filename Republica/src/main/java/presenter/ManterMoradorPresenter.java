@@ -62,9 +62,14 @@ public class ManterMoradorPresenter {
                 for(int i = 0; i < 3; i++){
                     this.view.getjTableMorador().setValueAt("", linha, i);
                 }
-                JOptionPane.showMessageDialog(null, "Morador removido");
                 IDAOUsuario dao = new UsuarioSQLite();
+                IDAORepublica daoRepublica = new RepublicaSQLite();
+
+                String republica = dao.consultarRepublicaDoUsuario(nome_morador);
+                daoRepublica.incrementarVagasDisponiveis(republica);
                 dao.deletarRepublicaAtualDoUsuario(nome_morador);
+                
+                JOptionPane.showMessageDialog(null, "Morador removido");
             }
         });
         

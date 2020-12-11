@@ -20,34 +20,28 @@ public class CadastrarReceitaDespesaPresenter {
 
     private CadastrarReceitaDespesaView view;
     private ArrayList<String> nomesEsquerda;
-    private String[] nomesDireita;
+    private ArrayList<String> nomesDireita;
     private DefaultListModel modelEsquerda = new DefaultListModel();
     private DefaultListModel modelDireita = new DefaultListModel();
+    private CadastrarReceitaDespesaState state;
 
     public CadastrarReceitaDespesaPresenter() {
         this.view = new CadastrarReceitaDespesaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.view.setLocationRelativeTo(null);
         configuraBotaoDireita();
         configuraBotaoEsquerda();
         confirmarCadastro();
-        configuraView();
+        configuraViewCadastrar();
         this.view.setVisible(true);
     }
-
-    public void configuraView() {
-        IDAOUsuario dao = new UsuarioSQLite();
-        nomesEsquerda = dao.obterUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
-        
-        for (String s: nomesEsquerda) {
-            modelEsquerda.addElement(s);
-        }
-
-        view.getJlListaMoradorEsquerda().setModel(modelEsquerda);
-        
-        view.getJrbDespesa().setSelected(true);
-        view.getJrbIndefinido().setSelected(true);
-        view.getJftDataCadastro().setText(String.valueOf(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
-
+    
+    public void setState(CadastrarReceitaDespesaState state){
+        this.state = state;
+    }
+    
+    public void mudaState(ReceitaDespesa receitadespesa){
+        state.configuraView(receitadespesa);
     }
 
     public void configuraBotaoDireita() {
@@ -138,4 +132,93 @@ public class CadastrarReceitaDespesaPresenter {
             }
         });
     }
+    
+    public void configuraViewCadastrar() {
+        IDAOUsuario dao = new UsuarioSQLite();
+        nomesEsquerda = dao.obterUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
+        
+        for (String s: nomesEsquerda) {
+            modelEsquerda.addElement(s);
+        }
+
+        view.getJlListaMoradorEsquerda().setModel(modelEsquerda);
+        
+        view.getJrbDespesa().setSelected(true);
+        view.getJrbIndefinido().setSelected(true);
+        view.getJftDataCadastro().setText(String.valueOf(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+        view.getjLabelValorParcela().setVisible(false);
+        view.getJtValorParcela().setVisible(false);
+
+    }
+    
+    public void configuraViewEditar(ReceitaDespesa receitadespesa){
+        preencheCampos(receitadespesa);
+        
+        view.getJbConfirmar().setText("Editar");
+    }
+    
+    public void configuraViewVizualizar(ReceitaDespesa receitadespesa){
+        preencheCampos(receitadespesa);
+        
+        view.getJftDataCadastro().setEnabled(false);
+        view.getJbBotaoDireita().setEnabled(false);
+        view.getJbBotaoEsquerda().setEnabled(false);
+        view.getJbConfirmar().setVisible(false);
+        view.getJftDataVencimento().setEnabled(false);
+        view.getJrbAnual().setEnabled(false);
+        view.getJrbDespesa().setEnabled(false);
+        view.getJrbIndefinido().setEnabled(false);
+        view.getJrbMensal().setEnabled(false);
+        view.getJrbReceita().setEnabled(false);
+        view.getJrbSemanal().setEnabled(false);
+        view.getJtDescricaoReceitaDespesa().setEnabled(false);
+        view.getJtValor().setEnabled(false);
+        view.getJtValorParcela().setEnabled(false);
+    }
+    
+    public void preencheCampos(ReceitaDespesa receitadespesa){
+        view.getJftDataCadastro().setText(String.valueOf(receitadespesa.getDataCadastro().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+        view.getJftDataVencimento().setText(String.valueOf(receitadespesa.getDataVencimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+        view.getJtDescricaoReceitaDespesa().setText(receitadespesa.getDescricao());
+        view.getJtValor().setText(String.valueOf(receitadespesa.getValor()));
+        view.getJtValorParcela().setText(String.valueOf(receitadespesa.getValorParcela()));
+        
+        if(receitadespesa.getTipo().equals("Receita")){
+            view.getJrbReceita().setSelected(true);
+        }else{
+            view.getJrbDespesa().setSelected(true);
+        }
+        
+        if(receitadespesa.getPeriodicidade().equals("Indefinido")){
+            view.getJrbIndefinido().setSelected(true);
+        }else if (receitadespesa.getPeriodicidade().equals("Anual")){
+            view.getJrbAnual().setSelected(true);
+        }else if (receitadespesa.getPeriodicidade().equals("Mensal")){
+            view.getJrbMensal().setSelected(true);
+        }else{
+            view.getJrbSemanal().setSelected(true);
+        }
+        
+        view.getJtValorParcela().setEnabled(false);
+        
+        for(String nome: receitadespesa.getMoradoresparticipantes()){
+            modelDireita.addElement(nome);
+        }
+        
+        view.getJlListaMoradorDireita().setModel(modelDireita);
+        
+        IDAOUsuario dao = new UsuarioSQLite();
+        nomesEsquerda = dao.obterUsuariosNaRepublicaAtual(UsuarioLogado.getInstancia().getRepublicaAtual());
+        
+        for (String nome: receitadespesa.getMoradoresparticipantes()){
+            for (String nomeMoradores: nomesEsquerda){
+                if(nome.equals(nomeMoradores)){
+                    modelEsquerda.removeElement(nomeMoradores);
+                }
+            }
+        }
+        
+        view.getJlListaMoradorEsquerda().setModel(modelEsquerda);
+    }
+    
 }

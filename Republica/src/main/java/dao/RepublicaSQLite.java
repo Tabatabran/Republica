@@ -232,4 +232,16 @@ public class RepublicaSQLite extends QuerySQLite implements IDAORepublica {
         }
     }
 
+    @Override
+    public void incrementarVagasDisponiveis(String nomeRepublica) {
+        makeQuery(String.format("UPDATE republica SET vagasDisponiveis = vagasDisponiveis + 1, "
+                + "vagasOcupadas = vagasOcupadas - 1 WHERE nome = \"%s\" ", nomeRepublica));
+    }
+
+    @Override
+    public void decrementarVagasDisponiveis(String nomeRepublica) {
+        makeQuery(String.format("UPDATE republica SET vagasDisponiveis = vagasDisponiveis - 1, "
+                + "vagasOcupadas = vagasOcupadas + 1 WHERE nome = \"%s\" ", nomeRepublica));
+    }
+
 }

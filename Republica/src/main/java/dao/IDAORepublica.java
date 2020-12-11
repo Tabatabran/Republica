@@ -16,6 +16,8 @@ import java.util.Map;
 public interface IDAORepublica {
    public void addRepublica(Republica republica);
    public ArrayList<Map<String, String>> obterRepublicas();
+   public void incrementarVagasDisponiveis(String nomeRepublica);
+   public void decrementarVagasDisponiveis(String nomeRepublica);
    public Republica consultarRepublica(String nomeRepublica);
    public void updateRepublica(Republica republica, String nomeAntigo);
    public void excluirRepublica(String nome);

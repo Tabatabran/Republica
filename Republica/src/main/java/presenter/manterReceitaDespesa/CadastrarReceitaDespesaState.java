@@ -5,18 +5,18 @@
  */
 package presenter.manterReceitaDespesa;
 
+import com.pss.model.ReceitaDespesa;
+
 /**
  *
  * @author tabat
  */
-public abstract class ManterReceitaDespesaState {
-    protected ManterReceitaDespesaPresenter presenter;
+public abstract class CadastrarReceitaDespesaState {
+    protected CadastrarReceitaDespesaPresenter presenter;
     
-    public ManterReceitaDespesaState(ManterReceitaDespesaPresenter presenter){
+    public CadastrarReceitaDespesaState(CadastrarReceitaDespesaPresenter presenter){
         this.presenter=presenter;
     }
     
-    public abstract void excluirConta();
-    public abstract void exibirHistorico();
-    public abstract void editar();
+    public abstract void configuraView(ReceitaDespesa receitadespesa);
 }

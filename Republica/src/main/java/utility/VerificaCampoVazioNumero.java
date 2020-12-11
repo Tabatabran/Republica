@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.plaf.metal.MetalBorders;
@@ -32,7 +33,6 @@ public class VerificaCampoVazioNumero extends InputVerifier{
              return false;
          }
          return true;
-         
     }
     @Override
      public boolean shouldYieldFocus(JComponent input) {
@@ -45,7 +45,8 @@ public class VerificaCampoVazioNumero extends InputVerifier{
             input.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
             //input.setBorder(MetalBorders.getTextFieldBorder());
         }else{
-            input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+            //input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+            //JOptionPane.showMessageDialog(null, "Campo obrigatório, não pode ser vazio e é permitido apenas numeros");
         }
         
         return isValid;

@@ -11,8 +11,10 @@ import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.plaf.metal.MetalBorders;
 
 /**
  *
@@ -33,17 +35,18 @@ public class VerificaCampoVazio extends InputVerifier {
     @Override
      public boolean shouldYieldFocus(JComponent input) {
 
-        boolean isValid = verify(input);
-        Border originalBorder=null;
-        if (!isValid) {
-            originalBorder = (originalBorder == null ? input.getBorder() : originalBorder);
-            input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
-        } else {
-            if(originalBorder != null) {
-                input.setBorder(originalBorder);
-                originalBorder = null;
-            }
+         boolean isValid = verify(input);
+        
+        Border originalBorder=input.getBorder();
+        input.setBorder(MetalBorders.getTextFieldBorder());
+        if(isValid){
+            input.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
+            //input.setBorder(MetalBorders.getTextFieldBorder());
+        }else{
+            //input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+            //JOptionPane.showMessageDialog(null, "Este Campo obrigatório, não pode ser vazio");
         }
+        
         return isValid;
     }
 }

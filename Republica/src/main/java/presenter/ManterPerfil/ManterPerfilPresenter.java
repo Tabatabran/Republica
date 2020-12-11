@@ -37,6 +37,14 @@ public class ManterPerfilPresenter {
         this.view.setVisible(true);
         
     }
+    public boolean isValid(){
+        if(this.view.getjTextFieldNome().getInputVerifier().verify(this.view.getjTextFieldNome()) && this.view.getjTextFieldTelefone1().getInputVerifier().verify(this.view.getjTextFieldTelefone1())){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
     public void setInputVerifierVazioLetra(JTextField texfield){
         texfield.setInputVerifier(new VerificaCampoVazioLetra());
     }
@@ -44,45 +52,11 @@ public class ManterPerfilPresenter {
         texfield.setInputVerifier(new VerificaCampoVazio());
     }
     public void configurarValidacoes(){
+        setInputVerifierVazioLetra(view.getjTextFieldNome());        
+        setInputVerifierVazio(view.getjTextFieldTelefone1());
         
-        this.view.getjTextFieldNome().addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazioLetra(view.getjTextFieldNome());
-                System.out.println("ola mundo");
-            }
-        });
         
-        this.view.getjTextFieldApelido().addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazio(view.getjTextFieldApelido());
-            }
-        });
-        this.view.getjTextFieldRedeSocial().addFocusListener(new java.awt.event.FocusAdapter() {
-           @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazio(view.getjTextFieldRedeSocial());
-            }
-        });
-        this.view.getjTextFieldTelefone1().addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazio(view.getjTextFieldTelefone1());
-            }
-        });
-        this.view.getjTextFieldTelefone2().addFocusListener(new java.awt.event.FocusAdapter() {
-           @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazio(view.getjTextFieldTelefone2());
-            }
-        });
-        this.view.getjTextFieldTelefone3().addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e){
-                setInputVerifierVazio(view.getjTextFieldTelefone3());
-            }
-        });
+//        
     }
     public void changeState(ManterPerfilState state){
         this.state=state;

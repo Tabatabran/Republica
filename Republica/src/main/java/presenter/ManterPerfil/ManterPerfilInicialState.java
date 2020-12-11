@@ -25,7 +25,7 @@ public class ManterPerfilInicialState extends ManterPerfilState{
     public void excluirConta(){
         IDAOUsuario dao = new UsuarioSQLite();         
         dao.excluirConta();
-        JOptionPane.showMessageDialog(null, "Pronto thamires!");        
+        JOptionPane.showMessageDialog(null, "Conta Excluída!");        
     }
     @Override
     public  void exibirHistorico(){

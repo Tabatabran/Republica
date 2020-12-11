@@ -28,6 +28,7 @@ public class CadastrarReceitaDespesaPresenter {
     public CadastrarReceitaDespesaPresenter() {
         this.view = new CadastrarReceitaDespesaView();
         this.view.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.view.setLocationRelativeTo(null);
         configuraBotaoDireita();
         configuraBotaoEsquerda();
         confirmarCadastro();
@@ -153,6 +154,7 @@ public class CadastrarReceitaDespesaPresenter {
     public void configuraViewEditar(ReceitaDespesa receitadespesa){
         preencheCampos(receitadespesa);
         
+        view.getJbConfirmar().setText("Editar");
     }
     
     public void configuraViewVizualizar(ReceitaDespesa receitadespesa){
@@ -210,12 +212,13 @@ public class CadastrarReceitaDespesaPresenter {
         
         for (String nome: receitadespesa.getMoradoresparticipantes()){
             for (String nomeMoradores: nomesEsquerda){
-                if(nome != nomeMoradores){
-                    modelEsquerda.addElement(nomeMoradores);
+                if(nome.equals(nomeMoradores)){
+                    modelEsquerda.removeElement(nomeMoradores);
                 }
             }
         }
         
         view.getJlListaMoradorEsquerda().setModel(modelEsquerda);
     }
+    
 }

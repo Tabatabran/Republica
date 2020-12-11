@@ -71,9 +71,7 @@ public class ManterReceitasDespesasView extends javax.swing.JFrame {
         return jtTabelaReceitaDespesa;
     }
 
-    public void setJtTabelaReceitaDespesa(JTable jtTabelaReceitaDespesa) {
-        this.jtTabelaReceitaDespesa = jtTabelaReceitaDespesa;
-    }
+    
     
     
     
@@ -109,7 +107,7 @@ public class ManterReceitasDespesasView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Descrição", "Data Vencimento", "Valor", "Periodicidade", "Moradores", "Valor Dividido", "Valor Recebido/Pago", "Status"
+                "id", "Tipo", "Descrição", "Data Cadastro", "Data Vencimento", "Valor", "Periodicidade", "Moradores", "Valor Dividido"
             }
         ) {
             boolean[] canEdit = new boolean [] {

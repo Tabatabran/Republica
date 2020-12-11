@@ -6,6 +6,8 @@
 package dao;
 
 import com.pss.model.ReceitaDespesa;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,4 +16,8 @@ import com.pss.model.ReceitaDespesa;
 public interface IDAOReceitaDespesa {
     public void cadastrarReceitaDespesa(ReceitaDespesa receitaDespesa);
     public void cadastrarListaDeMoradoresParticipantes(ReceitaDespesa receitaDespesa);
+    public ArrayList<ReceitaDespesa> buscarReceitasDespesas(String nomeRepublica);
+    public ArrayList<ReceitaDespesa> buscarReceitaDespesaPorPessoa(String nomeUsuario);
+    public ArrayList<ReceitaDespesa> buscarReceitaDespesaPorData(LocalDate dataVencimento);
+    public ReceitaDespesa buscarReceitaDespesa(int codigo);
 }
